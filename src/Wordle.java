@@ -13,7 +13,7 @@ private ArrayList<String> wordList;
 
     public Wordle(){
 
-        wordList = new ArrayList<String>();
+        wordList = new ArrayList<>();
 
         try {
             File myObj = new File("Five Letter Words.txt");
@@ -50,19 +50,37 @@ private ArrayList<String> wordList;
     }
 
     public boolean checkWord(String wordGuess){
+        if(wordGuess.length()!=5){
+            return false;
+        }
         if(wordGuess.equals(word)){
 
             return true;
+        }
+        if(wordGuess.substring(0,1).equals(word.substring(0,1))){
+
+            if(wordGuess.substring(1,2).equals(word.substring(1,2))){
+
+                if(wordGuess.substring(2,3).equals(word.substring(2,3))){
+
+                    if(wordGuess.substring(3,4).equals(word.substring(3,4))){
+
+                        if(wordGuess.substring(4,5).equals(word.substring(4,5))){
+
+                            return wordGuess.substring(5).equals(word.substring(5));
+                        }
+                    }
+                }
+            }
         }
         return false;
     }
 
     public String toString(){
-    String guess = "Try to guess the word!";
-        return guess;
+        return "Try to guess the word!";
     }
 
-    public static void main(String[] args)throws Exception{
+    public static void main(String[] args) {
        //File words = new File("Five Letter Words.txt");
       // System.out.println(words.length());
       /*  Scanner myReader = new Scanner(words);
