@@ -26,7 +26,7 @@ public class WordleRunner {
             } else {
               //  System.out.println(wrd.checkArray(wordGuess));
                 System.out.println(wrd.checkWord(wordGuess));
-                System.out.println("32");
+              //  System.out.println("32");
               //  System.out.println(wrd.colorCheck(wordGuess));
             }
         }
