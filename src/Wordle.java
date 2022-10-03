@@ -14,7 +14,7 @@ private final ArrayList<String> chosenWordArray;
 
         try {
             File myObj = new File("Five Letter Words.txt");
-            System.out.println(myObj.length());
+          //  System.out.println(myObj.length());
             Scanner myReader = new Scanner(myObj);
            // int count = 0;
             while (myReader.hasNextLine()) {
@@ -31,7 +31,7 @@ private final ArrayList<String> chosenWordArray;
         }
 
         chosenWord = this.wordGen();
-        System.out.println(allWordList.size());
+       // System.out.println(allWordList.size());
         for(int i = 0;i<5;i++){
 
             chosenWordArray.add(chosenWord.substring(i,i+1));
@@ -47,12 +47,7 @@ private final ArrayList<String> chosenWordArray;
 
     public boolean checkArray(String gWord){
 
-        for (String s : allWordList) {
-            if (s.equals(gWord)) {
-                return true;
-            }
-        }
-        return false;
+        return allWordList.contains(gWord);
     }
 
 
@@ -97,25 +92,51 @@ private final ArrayList<String> chosenWordArray;
         //green if letter is in the right spot
         // yellow if existing letter is in the wrong spot
         //grey if letter does not exist in the word
-        if(gWord.length()!=5){
-            return "false";
-        }
+
         ArrayList<String> gWordArray = new ArrayList<>();
-        for (int x =0;x<5;x++){
+        for(int x = 0;x<gWord.length();x++){
+
             gWordArray.add(gWord.substring(x,x+1));
         }
+
+       // String result = "";
         String greenReport = "";
         String greyReport = "";
         String yellowReport = "";
-      /*  for (int i = 0; i<chosenWordArray.size();i++){
-            for (int j = 0; i<gWordArray.size();j++){
+        int greyCheck;
+        for (int i = 0; i<gWordArray.size();i++){
 
-             //   if(){}
+            greyCheck = 0;
+            for (int j = 0; j<chosenWordArray.size();j++){
+
+                if (!chosenWordArray.get(j).equals(gWordArray.get(i))){
+
+                    greyCheck++;
+                    if(greyCheck==5){
+                        greyReport+=""+i;
+                    }
+                }else if((chosenWordArray.get(j).equals(gWordArray.get(i))&&i==j)){
+
+                    greenReport+=""+i;
+                    break;
+
+                }else if((chosenWordArray.get(j).equals(gWordArray.get(i))&&i!=j)){
+
+                    yellowReport+=""+i;
+                    continue;
+                }
+
             }
         }
 
-       */
-        return "";
+        for (int a = 0;a<yellowReport.length();a++){
+            if(greenReport.contains(yellowReport.substring(a,a+1))){
+                yellowReport=yellowReport.replace(yellowReport.substring(a,a+1),"");
+            }
+            }
+
+
+        return "Green:"+greenReport+" Yellow:"+yellowReport+" Grey:"+greyReport+" ";
     }
 
     public String toString(){
