@@ -39,7 +39,7 @@ public class nullDesign {
     }
 
     private void tf11KeyTyped(KeyEvent e) {
-        // TODO add your code here
+
         boolean max = tf11.getText().length() > 0;
         if (max) {
             tf12.requestFocusInWindow();
@@ -51,7 +51,7 @@ public class nullDesign {
 
 
     private void tf12KeyTyped(KeyEvent e) {
-        // TODO add your code here
+
         boolean max = tf12.getText().length() > 0;
         if ( max ){
             e.consume();
@@ -132,12 +132,12 @@ public class nullDesign {
 
         //======== frameMain ========
         {
-            frameMain.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border.
-            EmptyBorder( 0, 0, 0, 0) , "", javax. swing. border. TitledBorder. CENTER, javax. swing
-            . border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 ),
-            java. awt. Color. red) ,frameMain. getBorder( )) ); frameMain. addPropertyChangeListener (new java. beans. PropertyChangeListener( )
-            { @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062order" .equals (e .getPropertyName () ))
-            throw new RuntimeException( ); }} );
+            frameMain.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border
+            .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e" , javax. swing .border . TitledBorder. CENTER ,javax
+            . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "Dialo\u0067", java .awt . Font. BOLD ,
+            12 ) ,java . awt. Color .red ) ,frameMain. getBorder () ) ); frameMain. addPropertyChangeListener( new java. beans
+            .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "borde\u0072" .equals ( e.
+            getPropertyName () ) )throw new RuntimeException( ) ;} } );
             frameMain.setLayout(null);
 
             //---- buttonV ----
