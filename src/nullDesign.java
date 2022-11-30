@@ -1,9 +1,11 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+//import java.util.Arrays;
 import javax.swing.*;
-import javax.swing.border.*;
+//import javax.swing.border.*;
 import javax.swing.event.*;
-//import com.jgoodies.forms.factories.*;
+
 
 
 /*
@@ -16,56 +18,229 @@ import javax.swing.event.*;
  * @author Zakharias Joseph
  */
 public class nullDesign {
+
+
+    private ArrayList<JTextField> textList;
+    private JTextField[] textArray;
+    private JTextField[][] text2dArray;
+    private JTextField cursor ;
+
     public nullDesign() {
         initComponents();
+        cursor = tf11;
+        textList = new ArrayList<JTextField>();
+        textList.add(tf11);
+        textList.add(tf12);
+        textList.add(tf13);
+        textList.add(tf14);
+        textList.add(tf15);
+        textArray = new JTextField[30];
+        textArray[0] = tf11;
+        //text2dArray = new JTextField[6][5];
+        text2dArray = new JTextField[][]{{tf11, tf12, tf13, tf14, tf15},{tf21,tf22,tf23,tf24,tf25},{tf31,tf32,tf33,tf34,tf35},
+                {tf41,tf42,tf43,tf44,tf45},{tf51,tf52,tf53,tf54,tf55},{tf61,tf62,tf63,tf64,tf65}};
+        //System.out.println(Arrays.toString(textList));
+        /*
+        if(tf11.getText().equals(textList.get(0).getText())){
+            System.out.println("same");
+        }else{
+            System.out.println("diff");
+        }
+         */
+        //text2dArray.
+
         tf11.getDocument().addDocumentListener(new DocumentListener(){
             @Override
             public void insertUpdate(DocumentEvent e) {
-                System.out.println("insert");
+                //System.out.println("d");
+                //System.out.println(e.getDocument());
+                //System.out.println(e.toString());
+
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                System.out.println("delete");
+                System.out.println("");
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                System.out.println("change");
+
             }
-
         });
-
     }
-
     private void tf11KeyTyped(KeyEvent e) {
-
+        cursor = tf11;
         boolean max = tf11.getText().length() > 0;
-        if (max) {
-            tf12.requestFocusInWindow();
+        System.out.println(Character.toString(e.getKeyChar()).matches("[a-zA-Z]"));
+        /*if(!Character.toString(e.getKeyChar()).matches("[a-zA-Z]")){
+            System.out.println("12");
             e.consume();
 
         }
-        //tf12.requestFocusInWindow();
-    }
 
+         */
+        if(!(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }
+        System.out.println("sd"+max+tf11.getText().length());
+        if (max&&(Character.isLetter(e.getKeyChar()))) {
+            e.consume();
+            tf12.setText(Character.toString(e.getKeyChar()));
+            cursor = tf12;
+            tf12.requestFocusInWindow();
+        }
+
+        //System.out.println(cursor);
+    }
 
     private void tf12KeyTyped(KeyEvent e) {
-
+        cursor = tf12;
         boolean max = tf12.getText().length() > 0;
-        if ( max ){
+
+       /* if(!Character.toString(e.getKeyChar()).matches("[a-zA-Z]")){
+            System.out.println("12");
             e.consume();
 
         }
-        if(e.getKeyCode() == KeyEvent.VK_BACK_SPACE)
+
+        */
+        if(!(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }
+
+        if ( max ){
+            e.consume();
+            cursor = tf12;
+        }
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE)
         {
+            System.out.println("tr");
+            cursor = tf11;
             tf11.requestFocusInWindow();
-        }else {
+        }else if(Character.isLetter(e.getKeyChar())) {
+            tf13.setText(Character.toString(e.getKeyChar()));
+            cursor = tf13;
             tf13.requestFocusInWindow();
+        }
+
+        System.out.println("13"+findPrevFocus().getName());
+
+    }
+    
+    private void tf13KeyTyped(KeyEvent e) {
+        cursor = tf13;
+        boolean max = tf13.getText().length() > 0;
+        /*if(!Character.toString(e.getKeyChar()).matches("[a-zA-Z]")){
+            System.out.println("12");
+            e.consume();
+
+        }
+
+         */
+        if ( max ){
+            e.consume();
+            cursor = tf13;
+        }
+        if(!(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }
+
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE)
+        {
+            cursor = tf12;
+            tf12.requestFocusInWindow();
+        }else if(Character.isLetter(e.getKeyChar())) {
+            tf14.setText(Character.toString(e.getKeyChar()));
+            cursor = tf14;
+            tf14.requestFocusInWindow();
+        }
+
+        System.out.println(findPrevFocus().getName());
+
+    }
+    private void tf14KeyTyped(KeyEvent e) {
+        cursor = tf14;
+        /*if(!Character.toString(e.getKeyChar()).matches("[a-zA-Z]")){
+            System.out.println("12");
+            e.consume();
+
+        }
+
+         */
+        boolean max = tf14.getText().length() > 0;
+        if ( max ){
+            e.consume();
+        }
+        if(!(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }
+        
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE)
+        {
+            cursor = tf13;
+            tf13.requestFocusInWindow();
+        }else if(Character.isLetter(e.getKeyChar())){
+            tf15.setText(Character.toString(e.getKeyChar()));
+            cursor = tf15;
+            tf15.requestFocusInWindow();
+        }
+    }
+    private void tf15KeyTyped(KeyEvent e) {
+        cursor = tf15;
+        boolean max = tf15.getText().length() > 0;
+        if ( max ){
+            e.consume();
+        }
+        if(!(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }
+
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE)
+        {
+            cursor = tf14;
+            tf14.requestFocusInWindow();
         }
     }
 
-    
+    private void q(ActionEvent e) {
+
+            cursor.setText("q");
+
+        //cursor.setn;
+        if (cursor != tf15 && cursor != tf25) {
+            //buttonQ.dispatchEvent(tf11KeyTyped(KeyEvent.VK_Q););
+            cursor = textList.get(textList.indexOf(cursor) + 1);
+        }
+        cursor.requestFocusInWindow();
+        //(Component)e.getSource().transfer.setText("Q");
+    }
+
+    private void dELETE(ActionEvent e) {
+        //System.out.println(findPrevFocus().getX());
+        cursor.setText("");
+        //cursor.transferFocus();
+        if (cursor != tf11 && cursor != tf21) {
+            cursor = textList.get(textList.indexOf(cursor) - 1);
+        }
+        cursor.requestFocusInWindow();
+    }
+    public static Component findPrevFocus() {
+        Component c = KeyboardFocusManager.getCurrentKeyboardFocusManager().getFocusOwner();
+        Container root = c.getFocusCycleRootAncestor();
+
+        FocusTraversalPolicy policy = root.getFocusTraversalPolicy();
+        Component prevFocus = policy.getComponentBefore(root, c);
+        if (prevFocus == null) {
+            prevFocus = policy.getDefaultComponent(root);
+        }
+        System.out.println(root);
+        return prevFocus;
+    }
+
+
+
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
         // Generated using JFormDesigner Evaluation license - Zakharias Joseph
@@ -132,151 +307,181 @@ public class nullDesign {
 
         //======== frameMain ========
         {
-            frameMain.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border
-            .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e" , javax. swing .border . TitledBorder. CENTER ,javax
-            . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "Dialo\u0067", java .awt . Font. BOLD ,
-            12 ) ,java . awt. Color .red ) ,frameMain. getBorder () ) ); frameMain. addPropertyChangeListener( new java. beans
-            .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "borde\u0072" .equals ( e.
-            getPropertyName () ) )throw new RuntimeException( ) ;} } );
+            frameMain.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border.
+            EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER, javax. swing
+            . border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 ),
+            java. awt. Color. red) ,frameMain. getBorder( )) ); frameMain. addPropertyChangeListener (new java. beans. PropertyChangeListener( )
+            { @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062order" .equals (e .getPropertyName () ))
+            throw new RuntimeException( ); }} );
             frameMain.setLayout(null);
 
             //---- buttonV ----
             buttonV.setText("V");
+            buttonV.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonV);
             buttonV.setBounds(475, 625, 45, 60);
 
             //---- buttonC ----
             buttonC.setText("C");
+            buttonC.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonC);
             buttonC.setBounds(425, 625, 45, 60);
 
             //---- buttonX ----
             buttonX.setText("X");
+            buttonX.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonX);
             buttonX.setBounds(375, 625, 45, 60);
 
             //---- buttonB ----
             buttonB.setText("B");
+            buttonB.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonB);
             buttonB.setBounds(525, 625, 45, 60);
 
             //---- buttonN ----
             buttonN.setText("N");
+            buttonN.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonN);
             buttonN.setBounds(575, 625, 45, 60);
 
             //---- buttonM ----
             buttonM.setText("M");
+            buttonM.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonM);
             buttonM.setBounds(625, 625, 45, 60);
 
             //---- buttonZ ----
             buttonZ.setText("Z");
+            buttonZ.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonZ);
             buttonZ.setBounds(325, 625, 45, 60);
 
             //---- buttonENTER ----
             buttonENTER.setText("ENTER");
+            buttonENTER.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonENTER);
             buttonENTER.setBounds(255, 625, 65, 60);
 
             //---- buttonDELETE ----
             buttonDELETE.setText("DEL");
+            buttonDELETE.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonDELETE.addActionListener(e -> dELETE(e));
             frameMain.add(buttonDELETE);
             buttonDELETE.setBounds(675, 625, 70, 60);
 
             //---- buttonG ----
             buttonG.setText("G");
+            buttonG.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonG);
             buttonG.setBounds(475, 560, 45, 60);
 
             //---- buttonF ----
             buttonF.setText("F");
+            buttonF.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonF);
             buttonF.setBounds(425, 560, 45, 60);
 
             //---- buttonH ----
             buttonH.setText("H");
+            buttonH.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonH);
             buttonH.setBounds(525, 560, 45, 60);
 
             //---- buttonD ----
             buttonD.setText("D");
+            buttonD.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonD);
             buttonD.setBounds(375, 560, 45, 60);
 
             //---- buttonJ ----
             buttonJ.setText("J");
+            buttonJ.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonJ);
             buttonJ.setBounds(575, 560, 45, 60);
 
             //---- buttonK ----
             buttonK.setText("K");
+            buttonK.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonK);
             buttonK.setBounds(625, 560, 45, 60);
 
             //---- buttonL ----
             buttonL.setText("L");
+            buttonL.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonL);
             buttonL.setBounds(675, 560, 45, 60);
 
             //---- buttonS ----
             buttonS.setText("S");
+            buttonS.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonS);
             buttonS.setBounds(325, 560, 45, 60);
 
             //---- buttonA ----
             buttonA.setText("A");
+            buttonA.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonA);
             buttonA.setBounds(275, 560, 45, 60);
 
             //---- buttonT ----
             buttonT.setText("T");
+            buttonT.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonT);
             buttonT.setBounds(450, 495, 45, 60);
 
             //---- buttonY ----
             buttonY.setText("Y");
+            buttonY.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonY);
             buttonY.setBounds(500, 495, 45, 60);
 
             //---- buttonU ----
             buttonU.setText("U");
+            buttonU.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonU);
             buttonU.setBounds(550, 495, 45, 60);
 
             //---- buttonI ----
             buttonI.setText("I");
+            buttonI.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonI);
             buttonI.setBounds(600, 495, 45, 60);
 
             //---- buttonO ----
             buttonO.setText("O");
+            buttonO.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonO);
             buttonO.setBounds(650, 495, 45, 60);
 
             //---- buttonP ----
             buttonP.setText("P");
+            buttonP.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonP);
             buttonP.setBounds(700, 495, 45, 60);
 
             //---- buttonR ----
             buttonR.setText("R");
+            buttonR.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonR);
             buttonR.setBounds(400, 495, 45, 60);
 
             //---- buttonE ----
             buttonE.setText("E");
+            buttonE.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonE);
             buttonE.setBounds(350, 495, 45, 60);
 
             //---- buttonQ ----
             buttonQ.setText("Q");
+            buttonQ.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonQ.addActionListener(e -> q(e));
             frameMain.add(buttonQ);
             buttonQ.setBounds(250, 495, 45, 60);
 
             //---- buttonW ----
             buttonW.setText("W");
+            buttonW.setFont(new Font("Segoe UI", Font.BOLD, 11));
             frameMain.add(buttonW);
             buttonW.setBounds(300, 495, 45, 60);
 
@@ -379,6 +584,12 @@ public class nullDesign {
 
             //---- tf13 ----
             tf13.setHorizontalAlignment(SwingConstants.CENTER);
+            tf13.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf13KeyTyped(e);
+                }
+            });
             frameMain.add(tf13);
             tf13.setBounds(465, 70, 60, 60);
 
@@ -434,11 +645,23 @@ public class nullDesign {
 
             //---- tf14 ----
             tf14.setHorizontalAlignment(SwingConstants.CENTER);
+            tf14.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf14KeyTyped(e);
+                }
+            });
             frameMain.add(tf14);
             tf14.setBounds(535, 70, 60, 60);
 
             //---- tf15 ----
             tf15.setHorizontalAlignment(SwingConstants.CENTER);
+            tf15.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf15KeyTyped(e);
+                }
+            });
             frameMain.add(tf15);
             tf15.setBounds(605, 70, 60, 60);
 
