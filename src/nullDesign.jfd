@@ -335,6 +335,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf11"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf11KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
@@ -390,6 +391,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf12"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf12KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
@@ -445,6 +447,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf13"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf13KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
@@ -545,6 +548,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf14"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf14KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
@@ -555,6 +559,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf15"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf15KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60

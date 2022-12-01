@@ -1,11 +1,11 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
-//import java.util.Arrays;
+import java.util.*;
+import java.util.Arrays;
 import javax.swing.*;
-//import javax.swing.border.*;
+import javax.swing.border.*;
 import javax.swing.event.*;
-
+//import com.jgoodies.forms.factories.*;
 
 
 /*
@@ -23,19 +23,20 @@ public class nullDesign {
     private ArrayList<JTextField> textList;
     private JTextField[] textArray;
     private JTextField[][] text2dArray;
+    private ArrayList<JTextField> lastOfRowList;
+    private ArrayList<JTextField> firstOfRowList;
     private JTextField cursor ;
 
     public nullDesign() {
         initComponents();
         cursor = tf11;
-        textList = new ArrayList<JTextField>();
-        textList.add(tf11);
-        textList.add(tf12);
-        textList.add(tf13);
-        textList.add(tf14);
-        textList.add(tf15);
-        textArray = new JTextField[30];
-        textArray[0] = tf11;
+        textList = new ArrayList<>(Arrays.asList(tf11,tf12,tf13,tf14,tf15,tf21,tf22,tf23,tf24,tf25,tf31,tf32,tf33,tf34,tf35,
+    tf41,tf42,tf43,tf44,tf45,tf51,tf52,tf53,tf54,tf55,tf61,tf62,tf63,tf64,tf65));
+        lastOfRowList = new ArrayList<>(Arrays.asList(tf15,tf25,tf35,tf45,tf55,tf65));
+        firstOfRowList = new ArrayList<>(Arrays.asList(tf11,tf21,tf31,tf41,tf51,tf61));
+
+        //textArray = new JTextField[30];
+       // textArray[0] = tf11;
         //text2dArray = new JTextField[6][5];
         text2dArray = new JTextField[][]{{tf11, tf12, tf13, tf14, tf15},{tf21,tf22,tf23,tf24,tf25},{tf31,tf32,tf33,tf34,tf35},
                 {tf41,tf42,tf43,tf44,tf45},{tf51,tf52,tf53,tf54,tf55},{tf61,tf62,tf63,tf64,tf65}};
@@ -72,120 +73,89 @@ public class nullDesign {
     private void tf11KeyTyped(KeyEvent e) {
         cursor = tf11;
         boolean max = tf11.getText().length() > 0;
-        System.out.println(Character.toString(e.getKeyChar()).matches("[a-zA-Z]"));
-        /*if(!Character.toString(e.getKeyChar()).matches("[a-zA-Z]")){
-            System.out.println("12");
-            e.consume();
 
-        }
-
-         */
         if(!(Character.isLetter(e.getKeyChar()))){
             e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
         }
-        System.out.println("sd"+max+tf11.getText().length());
+
         if (max&&(Character.isLetter(e.getKeyChar()))) {
             e.consume();
-            tf12.setText(Character.toString(e.getKeyChar()));
+            tf12.setText(Character.toString(e.getKeyChar()).toUpperCase());
             cursor = tf12;
             tf12.requestFocusInWindow();
         }
 
-        //System.out.println(cursor);
     }
 
     private void tf12KeyTyped(KeyEvent e) {
         cursor = tf12;
         boolean max = tf12.getText().length() > 0;
 
-       /* if(!Character.toString(e.getKeyChar()).matches("[a-zA-Z]")){
-            System.out.println("12");
+        System.out.println(tf12.getText().length());
+        if ( max || !(Character.isLetter(e.getKeyChar()))){
             e.consume();
-
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
         }
 
-        */
-        if(!(Character.isLetter(e.getKeyChar()))){
-            e.consume();
-        }
-
-        if ( max ){
-            e.consume();
-            cursor = tf12;
-        }
         if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE)
         {
-            System.out.println("tr");
+
             cursor = tf11;
             tf11.requestFocusInWindow();
-        }else if(Character.isLetter(e.getKeyChar())) {
-            tf13.setText(Character.toString(e.getKeyChar()));
+        }else if(max&&Character.isLetter(e.getKeyChar())) {
+            tf13.setText(Character.toString(e.getKeyChar()).toUpperCase());
             cursor = tf13;
             tf13.requestFocusInWindow();
         }
 
-        System.out.println("13"+findPrevFocus().getName());
-
     }
-    
+
     private void tf13KeyTyped(KeyEvent e) {
         cursor = tf13;
         boolean max = tf13.getText().length() > 0;
-        /*if(!Character.toString(e.getKeyChar()).matches("[a-zA-Z]")){
-            System.out.println("12");
+
+        if ( max || !(Character.isLetter(e.getKeyChar()))){
             e.consume();
 
-        }
-
-         */
-        if ( max ){
-            e.consume();
-            cursor = tf13;
-        }
-        if(!(Character.isLetter(e.getKeyChar()))){
-            e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
         }
 
         if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE)
         {
             cursor = tf12;
             tf12.requestFocusInWindow();
-        }else if(Character.isLetter(e.getKeyChar())) {
-            tf14.setText(Character.toString(e.getKeyChar()));
+        }else if(max&&Character.isLetter(e.getKeyChar())) {
+            tf14.setText(Character.toString(e.getKeyChar()).toUpperCase());
             cursor = tf14;
             tf14.requestFocusInWindow();
         }
 
-        System.out.println(findPrevFocus().getName());
-
     }
     private void tf14KeyTyped(KeyEvent e) {
         cursor = tf14;
-        /*if(!Character.toString(e.getKeyChar()).matches("[a-zA-Z]")){
-            System.out.println("12");
-            e.consume();
 
-        }
-
-         */
         boolean max = tf14.getText().length() > 0;
-        if ( max ){
+        if ( max || !(Character.isLetter(e.getKeyChar()))){
             e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
         }
-        if(!(Character.isLetter(e.getKeyChar()))){
-            e.consume();
-        }
-        
+
         if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE)
         {
             cursor = tf13;
             tf13.requestFocusInWindow();
-        }else if(Character.isLetter(e.getKeyChar())){
-            tf15.setText(Character.toString(e.getKeyChar()));
+        }else if(max&&Character.isLetter(e.getKeyChar())){
+            tf15.setText(Character.toString(e.getKeyChar()).toUpperCase());
             cursor = tf15;
             tf15.requestFocusInWindow();
         }
     }
+
     private void tf15KeyTyped(KeyEvent e) {
         cursor = tf15;
         boolean max = tf15.getText().length() > 0;
@@ -194,6 +164,8 @@ public class nullDesign {
         }
         if(!(Character.isLetter(e.getKeyChar()))){
             e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
         }
 
         if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE)
@@ -204,20 +176,22 @@ public class nullDesign {
     }
 
     private void q(ActionEvent e) {
+        if(cursor.getText().length()>0) {
+           int index = textList.indexOf(cursor);
+           cursor = textList.get(index+1);
+        }
+        cursor.setText("Q");
 
-            cursor.setText("q");
+        if (!(lastOfRowList.contains(cursor))) {
 
-        //cursor.setn;
-        if (cursor != tf15 && cursor != tf25) {
-            //buttonQ.dispatchEvent(tf11KeyTyped(KeyEvent.VK_Q););
             cursor = textList.get(textList.indexOf(cursor) + 1);
         }
-        cursor.requestFocusInWindow();
-        //(Component)e.getSource().transfer.setText("Q");
+            cursor.requestFocusInWindow();
+
     }
 
     private void dELETE(ActionEvent e) {
-        //System.out.println(findPrevFocus().getX());
+
         cursor.setText("");
         //cursor.transferFocus();
         if (cursor != tf11 && cursor != tf21) {
@@ -225,6 +199,7 @@ public class nullDesign {
         }
         cursor.requestFocusInWindow();
     }
+
     public static Component findPrevFocus() {
         Component c = KeyboardFocusManager.getCurrentKeyboardFocusManager().getFocusOwner();
         Container root = c.getFocusCycleRootAncestor();
@@ -241,9 +216,9 @@ public class nullDesign {
 
 
 
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
-        // Generated using JFormDesigner Evaluation license - Zakharias Joseph
         frameMain = new JPanel();
         buttonV = new JButton();
         buttonC = new JButton();
@@ -307,12 +282,6 @@ public class nullDesign {
 
         //======== frameMain ========
         {
-            frameMain.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border.
-            EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER, javax. swing
-            . border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 ),
-            java. awt. Color. red) ,frameMain. getBorder( )) ); frameMain. addPropertyChangeListener (new java. beans. PropertyChangeListener( )
-            { @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062order" .equals (e .getPropertyName () ))
-            throw new RuntimeException( ); }} );
             frameMain.setLayout(null);
 
             //---- buttonV ----
@@ -512,6 +481,7 @@ public class nullDesign {
 
             //---- tf11 ----
             tf11.setHorizontalAlignment(SwingConstants.CENTER);
+            tf11.setFont(new Font("Segoe UI", Font.BOLD, 16));
             tf11.addKeyListener(new KeyAdapter() {
                 @Override
                 public void keyTyped(KeyEvent e) {
@@ -548,6 +518,7 @@ public class nullDesign {
 
             //---- tf12 ----
             tf12.setHorizontalAlignment(SwingConstants.CENTER);
+            tf12.setFont(new Font("Segoe UI", Font.BOLD, 16));
             tf12.addKeyListener(new KeyAdapter() {
                 @Override
                 public void keyTyped(KeyEvent e) {
@@ -584,6 +555,7 @@ public class nullDesign {
 
             //---- tf13 ----
             tf13.setHorizontalAlignment(SwingConstants.CENTER);
+            tf13.setFont(new Font("Segoe UI", Font.BOLD, 16));
             tf13.addKeyListener(new KeyAdapter() {
                 @Override
                 public void keyTyped(KeyEvent e) {
@@ -645,6 +617,7 @@ public class nullDesign {
 
             //---- tf14 ----
             tf14.setHorizontalAlignment(SwingConstants.CENTER);
+            tf14.setFont(new Font("Segoe UI", Font.BOLD, 16));
             tf14.addKeyListener(new KeyAdapter() {
                 @Override
                 public void keyTyped(KeyEvent e) {
@@ -656,6 +629,7 @@ public class nullDesign {
 
             //---- tf15 ----
             tf15.setHorizontalAlignment(SwingConstants.CENTER);
+            tf15.setFont(new Font("Segoe UI", Font.BOLD, 16));
             tf15.addKeyListener(new KeyAdapter() {
                 @Override
                 public void keyTyped(KeyEvent e) {
@@ -699,7 +673,6 @@ public class nullDesign {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables  @formatter:off
-    // Generated using JFormDesigner Evaluation license - Zakharias Joseph
     private JPanel frameMain;
     private JButton buttonV;
     private JButton buttonC;
