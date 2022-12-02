@@ -21,54 +21,35 @@ public class nullDesign {
 
 
     private ArrayList<JTextField> textList;
-    private JTextField[] textArray;
     private JTextField[][] text2dArray;
     private ArrayList<JTextField> lastOfRowList;
     private ArrayList<JTextField> firstOfRowList;
-    private JTextField cursor ;
+    private JTextField cursor;
+    private ArrayList<String> wordleList;
+    private String guessedWord;
 
     public nullDesign() {
         initComponents();
+        guessedWord="";
         cursor = tf11;
         textList = new ArrayList<>(Arrays.asList(tf11,tf12,tf13,tf14,tf15,tf21,tf22,tf23,tf24,tf25,tf31,tf32,tf33,tf34,tf35,
     tf41,tf42,tf43,tf44,tf45,tf51,tf52,tf53,tf54,tf55,tf61,tf62,tf63,tf64,tf65));
         lastOfRowList = new ArrayList<>(Arrays.asList(tf15,tf25,tf35,tf45,tf55,tf65));
         firstOfRowList = new ArrayList<>(Arrays.asList(tf11,tf21,tf31,tf41,tf51,tf61));
 
-        //textArray = new JTextField[30];
-       // textArray[0] = tf11;
-        //text2dArray = new JTextField[6][5];
+
         text2dArray = new JTextField[][]{{tf11, tf12, tf13, tf14, tf15},{tf21,tf22,tf23,tf24,tf25},{tf31,tf32,tf33,tf34,tf35},
                 {tf41,tf42,tf43,tf44,tf45},{tf51,tf52,tf53,tf54,tf55},{tf61,tf62,tf63,tf64,tf65}};
-        //System.out.println(Arrays.toString(textList));
-        /*
-        if(tf11.getText().equals(textList.get(0).getText())){
-            System.out.println("same");
-        }else{
-            System.out.println("diff");
-        }
-         */
-        //text2dArray.
+        Wordle wrd = new Wordle();
+        wordleList = wrd.getWordArray();
+    }
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Design");
+        frame.setContentPane(new nullDesign().frameMain);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(1000, 750);
+        frame.setVisible(true);
 
-        tf11.getDocument().addDocumentListener(new DocumentListener(){
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                //System.out.println("d");
-                //System.out.println(e.getDocument());
-                //System.out.println(e.toString());
-
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                System.out.println("");
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-
-            }
-        });
     }
     private void tf11KeyTyped(KeyEvent e) {
         cursor = tf11;
@@ -93,7 +74,7 @@ public class nullDesign {
         cursor = tf12;
         boolean max = tf12.getText().length() > 0;
 
-        System.out.println(tf12.getText().length());
+
         if ( max || !(Character.isLetter(e.getKeyChar()))){
             e.consume();
         }else {
@@ -200,20 +181,32 @@ public class nullDesign {
         cursor.requestFocusInWindow();
     }
 
-    public static Component findPrevFocus() {
-        Component c = KeyboardFocusManager.getCurrentKeyboardFocusManager().getFocusOwner();
-        Container root = c.getFocusCycleRootAncestor();
 
-        FocusTraversalPolicy policy = root.getFocusTraversalPolicy();
-        Component prevFocus = policy.getComponentBefore(root, c);
-        if (prevFocus == null) {
-            prevFocus = policy.getDefaultComponent(root);
+    private void eNTER(ActionEvent e) {
+
+        if(lastOfRowList.contains(cursor)){
+            findWord(cursor);
+            cursor = textList.get(textList.indexOf(cursor) + 1);
         }
-        System.out.println(root);
-        return prevFocus;
+        cursor.requestFocusInWindow();
     }
 
+    private void findWord(JTextField position){
+        int rowNum = 0;
 
+        for(int row = 0; row<text2dArray.length;row++){
+            for(int col = 0;col<text2dArray[row].length;col++){
+                if(position==text2dArray[row][col]){
+                    rowNum = row;
+                    break;
+                }
+            }
+        }
+        for(int col = 0;col<text2dArray[rowNum].length;col++){
+            guessedWord = guessedWord+text2dArray[rowNum][col].getText();
+        }
+
+    }
 
 
 
@@ -329,6 +322,7 @@ public class nullDesign {
             //---- buttonENTER ----
             buttonENTER.setText("ENTER");
             buttonENTER.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonENTER.addActionListener(e -> eNTER(e));
             frameMain.add(buttonENTER);
             buttonENTER.setBounds(255, 625, 65, 60);
 
@@ -456,26 +450,31 @@ public class nullDesign {
 
             //---- tf61 ----
             tf61.setHorizontalAlignment(SwingConstants.CENTER);
+            tf61.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf61);
             tf61.setBounds(325, 395, 60, 60);
 
             //---- tf51 ----
             tf51.setHorizontalAlignment(SwingConstants.CENTER);
+            tf51.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf51);
             tf51.setBounds(325, 330, 60, 60);
 
             //---- tf41 ----
             tf41.setHorizontalAlignment(SwingConstants.CENTER);
+            tf41.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf41);
             tf41.setBounds(325, 265, 60, 60);
 
             //---- tf31 ----
             tf31.setHorizontalAlignment(SwingConstants.CENTER);
+            tf31.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf31);
             tf31.setBounds(325, 200, 60, 60);
 
             //---- tf21 ----
             tf21.setHorizontalAlignment(SwingConstants.CENTER);
+            tf21.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf21);
             tf21.setBounds(325, 135, 60, 60);
 
@@ -493,26 +492,31 @@ public class nullDesign {
 
             //---- tf62 ----
             tf62.setHorizontalAlignment(SwingConstants.CENTER);
+            tf62.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf62);
             tf62.setBounds(395, 395, 60, 60);
 
             //---- tf52 ----
             tf52.setHorizontalAlignment(SwingConstants.CENTER);
+            tf52.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf52);
             tf52.setBounds(395, 330, 60, 60);
 
             //---- tf42 ----
             tf42.setHorizontalAlignment(SwingConstants.CENTER);
+            tf42.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf42);
             tf42.setBounds(395, 265, 60, 60);
 
             //---- tf32 ----
             tf32.setHorizontalAlignment(SwingConstants.CENTER);
+            tf32.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf32);
             tf32.setBounds(395, 200, 60, 60);
 
             //---- tf22 ----
             tf22.setHorizontalAlignment(SwingConstants.CENTER);
+            tf22.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf22);
             tf22.setBounds(395, 135, 60, 60);
 
@@ -530,26 +534,31 @@ public class nullDesign {
 
             //---- tf63 ----
             tf63.setHorizontalAlignment(SwingConstants.CENTER);
+            tf63.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf63);
             tf63.setBounds(465, 395, 60, 60);
 
             //---- tf53 ----
             tf53.setHorizontalAlignment(SwingConstants.CENTER);
+            tf53.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf53);
             tf53.setBounds(465, 330, 60, 60);
 
             //---- tf43 ----
             tf43.setHorizontalAlignment(SwingConstants.CENTER);
+            tf43.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf43);
             tf43.setBounds(465, 265, 60, 60);
 
             //---- tf33 ----
             tf33.setHorizontalAlignment(SwingConstants.CENTER);
+            tf33.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf33);
             tf33.setBounds(465, 200, 60, 60);
 
             //---- tf23 ----
             tf23.setHorizontalAlignment(SwingConstants.CENTER);
+            tf23.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf23);
             tf23.setBounds(465, 135, 60, 60);
 
@@ -567,51 +576,61 @@ public class nullDesign {
 
             //---- tf64 ----
             tf64.setHorizontalAlignment(SwingConstants.CENTER);
+            tf64.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf64);
             tf64.setBounds(535, 395, 60, 60);
 
             //---- tf54 ----
             tf54.setHorizontalAlignment(SwingConstants.CENTER);
+            tf54.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf54);
             tf54.setBounds(535, 330, 60, 60);
 
             //---- tf44 ----
             tf44.setHorizontalAlignment(SwingConstants.CENTER);
+            tf44.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf44);
             tf44.setBounds(535, 265, 60, 60);
 
             //---- tf65 ----
             tf65.setHorizontalAlignment(SwingConstants.CENTER);
+            tf65.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf65);
             tf65.setBounds(605, 395, 60, 60);
 
             //---- tf55 ----
             tf55.setHorizontalAlignment(SwingConstants.CENTER);
+            tf55.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf55);
             tf55.setBounds(605, 330, 60, 60);
 
             //---- tf34 ----
             tf34.setHorizontalAlignment(SwingConstants.CENTER);
+            tf34.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf34);
             tf34.setBounds(535, 200, 60, 60);
 
             //---- tf45 ----
             tf45.setHorizontalAlignment(SwingConstants.CENTER);
+            tf45.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf45);
             tf45.setBounds(605, 265, 60, 60);
 
             //---- tf35 ----
             tf35.setHorizontalAlignment(SwingConstants.CENTER);
+            tf35.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf35);
             tf35.setBounds(605, 200, 60, 60);
 
             //---- tf24 ----
             tf24.setHorizontalAlignment(SwingConstants.CENTER);
+            tf24.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf24);
             tf24.setBounds(535, 135, 60, 60);
 
             //---- tf25 ----
             tf25.setHorizontalAlignment(SwingConstants.CENTER);
+            tf25.setFont(new Font("Segoe UI", Font.BOLD, 16));
             frameMain.add(tf25);
             tf25.setBounds(605, 135, 60, 60);
 
@@ -663,14 +682,7 @@ public class nullDesign {
         }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents  @formatter:on
     }
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Design");
-        frame.setContentPane(new nullDesign().frameMain);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1000, 750);
-        //frame.pack();
-        frame.setVisible(true);
-    }
+
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables  @formatter:off
     private JPanel frameMain;

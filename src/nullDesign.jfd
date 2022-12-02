@@ -79,6 +79,7 @@ new FormModel {
 				name: "buttonENTER"
 				"text": "ENTER"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "eNTER", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 65
 				"height": 60
@@ -290,6 +291,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf61"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 325
 				"y": 395
@@ -299,6 +301,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf51"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -308,6 +311,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf41"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -317,6 +321,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf31"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -326,6 +331,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf21"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -346,6 +352,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf62"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -355,6 +362,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf52"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -364,6 +372,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf42"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -373,6 +382,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf32"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -382,6 +392,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf22"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -402,6 +413,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf63"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -411,6 +423,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf53"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -420,6 +433,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf43"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -429,6 +443,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf33"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -438,6 +453,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf23"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -458,6 +474,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf64"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -467,6 +484,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf54"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -476,6 +494,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf44"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -485,6 +504,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf65"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -494,6 +514,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf55"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -503,6 +524,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf34"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -512,6 +534,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf45"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -521,6 +544,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf35"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -530,6 +554,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf24"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -539,6 +564,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf25"
 				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 1, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
