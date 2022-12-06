@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.SQLSyntaxErrorException;
 import java.util.*;
 import java.util.Arrays;
 import javax.swing.*;
@@ -27,21 +28,34 @@ public class nullDesign {
     private JTextField cursor;
     private ArrayList<String> wordleList;
     private String guessedWord;
+    private String wordle;
+    private Wordle wrd;
+    private ArrayList<JButton> buttonList;
 
     public nullDesign() {
         initComponents();
         guessedWord="";
         cursor = tf11;
+        buttonList = new ArrayList<>(Arrays.asList(buttonA,buttonB,buttonC,buttonD,buttonE,buttonF,buttonG,buttonH,buttonI,buttonJ,buttonK,buttonL,
+        buttonM,buttonN,buttonO,buttonP,buttonQ,buttonR,buttonS,buttonT,buttonU,buttonV,buttonW,buttonX,buttonY,buttonZ));
+
         textList = new ArrayList<>(Arrays.asList(tf11,tf12,tf13,tf14,tf15,tf21,tf22,tf23,tf24,tf25,tf31,tf32,tf33,tf34,tf35,
     tf41,tf42,tf43,tf44,tf45,tf51,tf52,tf53,tf54,tf55,tf61,tf62,tf63,tf64,tf65));
-        lastOfRowList = new ArrayList<>(Arrays.asList(tf15,tf25,tf35,tf45,tf55,tf65));
-        firstOfRowList = new ArrayList<>(Arrays.asList(tf11,tf21,tf31,tf41,tf51,tf61));
 
+        lastOfRowList = new ArrayList<>(Arrays.asList(tf15,tf25,tf35,tf45,tf55,tf65));
+
+        firstOfRowList = new ArrayList<>(Arrays.asList(tf11,tf21,tf31,tf41,tf51,tf61));
 
         text2dArray = new JTextField[][]{{tf11, tf12, tf13, tf14, tf15},{tf21,tf22,tf23,tf24,tf25},{tf31,tf32,tf33,tf34,tf35},
                 {tf41,tf42,tf43,tf44,tf45},{tf51,tf52,tf53,tf54,tf55},{tf61,tf62,tf63,tf64,tf65}};
-        Wordle wrd = new Wordle();
+        wrd = new Wordle();
         wordleList = wrd.getWordArray();
+        wordle = wrd.getWord();
+        for(int i = 1; i<text2dArray.length;i++){
+            for(int j = 0;j<text2dArray[i].length;j++){
+                text2dArray[i][j].setEnabled(false);
+            }
+        }
     }
     public static void main(String[] args) {
         JFrame frame = new JFrame("Design");
@@ -74,16 +88,13 @@ public class nullDesign {
         cursor = tf12;
         boolean max = tf12.getText().length() > 0;
 
-
         if ( max || !(Character.isLetter(e.getKeyChar()))){
             e.consume();
         }else {
             e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
         }
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE)
-        {
-
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
             cursor = tf11;
             tf11.requestFocusInWindow();
         }else if(max&&Character.isLetter(e.getKeyChar())) {
@@ -91,7 +102,6 @@ public class nullDesign {
             cursor = tf13;
             tf13.requestFocusInWindow();
         }
-
     }
 
     private void tf13KeyTyped(KeyEvent e) {
@@ -105,8 +115,7 @@ public class nullDesign {
             e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
         }
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE)
-        {
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
             cursor = tf12;
             tf12.requestFocusInWindow();
         }else if(max&&Character.isLetter(e.getKeyChar())) {
@@ -114,7 +123,6 @@ public class nullDesign {
             cursor = tf14;
             tf14.requestFocusInWindow();
         }
-
     }
     private void tf14KeyTyped(KeyEvent e) {
         cursor = tf14;
@@ -126,8 +134,7 @@ public class nullDesign {
             e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
         }
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE)
-        {
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
             cursor = tf13;
             tf13.requestFocusInWindow();
         }else if(max&&Character.isLetter(e.getKeyChar())){
@@ -149,49 +156,580 @@ public class nullDesign {
             e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
         }
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE)
-        {
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
             cursor = tf14;
             tf14.requestFocusInWindow();
+        }else if(e.getKeyChar() == KeyEvent.VK_ENTER){
+
+            setGuessedWord(cursor);
+
+            if(wrd.checkArray(guessedWord.toLowerCase())){
+
+                findWord(tf15);
+                cursor = tf21;
+                cursor.requestFocusInWindow();
+            }
+        }
+    }
+    private void tf21KeyTyped(KeyEvent e) {
+        cursor = tf21;
+        boolean max = tf21.getText().length() > 0;
+
+        if(!(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if (max&&(Character.isLetter(e.getKeyChar()))) {
+            e.consume();
+            tf22.setText(Character.toString(e.getKeyChar()).toUpperCase());
+            cursor = tf22;
+            tf22.requestFocusInWindow();
         }
     }
 
+    private void tf22KeyTyped(KeyEvent e) {
+        cursor = tf22;
+        boolean max = tf22.getText().length() > 0;
+
+        if ( max || !(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+            cursor = tf21;
+            tf21.requestFocusInWindow();
+        }else if(max&&Character.isLetter(e.getKeyChar())) {
+            tf23.setText(Character.toString(e.getKeyChar()).toUpperCase());
+            cursor = tf23;
+            tf23.requestFocusInWindow();
+        }
+    }
+
+    private void tf23KeyTyped(KeyEvent e) {
+        cursor = tf23;
+        boolean max = tf23.getText().length() > 0;
+
+        if ( max || !(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
+            cursor = tf22;
+            tf22.requestFocusInWindow();
+        }else if(max&&Character.isLetter(e.getKeyChar())) {
+            tf24.setText(Character.toString(e.getKeyChar()).toUpperCase());
+            cursor = tf24;
+            tf24.requestFocusInWindow();
+        }
+    }
+
+    private void tf24KeyTyped(KeyEvent e) {
+        cursor = tf24;
+
+        boolean max = tf24.getText().length() > 0;
+        if ( max || !(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
+            cursor = tf23;
+            tf23.requestFocusInWindow();
+        }else if(max&&Character.isLetter(e.getKeyChar())){
+            tf25.setText(Character.toString(e.getKeyChar()).toUpperCase());
+            cursor = tf25;
+            tf25.requestFocusInWindow();
+        }
+    }
+
+    private void tf25KeyTyped(KeyEvent e) {
+        cursor = tf25;
+        boolean max = tf25.getText().length() > 0;
+        if ( max ){
+            e.consume();
+        }
+        if(!(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
+            cursor = tf24;
+            tf24.requestFocusInWindow();
+        }else if(e.getKeyChar() == KeyEvent.VK_ENTER){
+            setGuessedWord(cursor);
+            if(wrd.checkArray(guessedWord.toLowerCase())){
+                findWord(cursor);
+                cursor = tf31;
+                cursor.requestFocusInWindow();
+            }
+        }
+    }
+    private void tf31KeyTyped(KeyEvent e) {
+        cursor = tf31;
+        boolean max = tf31.getText().length() > 0;
+
+        if(!(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if (max&&(Character.isLetter(e.getKeyChar()))) {
+            e.consume();
+            tf32.setText(Character.toString(e.getKeyChar()).toUpperCase());
+            cursor = tf32;
+            tf32.requestFocusInWindow();
+        }
+    }
+
+    private void tf32KeyTyped(KeyEvent e) {
+        cursor = tf32;
+        boolean max = tf32.getText().length() > 0;
+
+        if ( max || !(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+            cursor = tf31;
+            tf31.requestFocusInWindow();
+        }else if(max&&Character.isLetter(e.getKeyChar())) {
+            tf33.setText(Character.toString(e.getKeyChar()).toUpperCase());
+            cursor = tf33;
+            tf33.requestFocusInWindow();
+        }
+    }
+
+    private void tf33KeyTyped(KeyEvent e) {
+        cursor = tf33;
+        boolean max = tf33.getText().length() > 0;
+
+        if ( max || !(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
+            cursor = tf32;
+            tf32.requestFocusInWindow();
+        }else if(max&&Character.isLetter(e.getKeyChar())) {
+            tf34.setText(Character.toString(e.getKeyChar()).toUpperCase());
+            cursor = tf34;
+            tf34.requestFocusInWindow();
+        }
+    }
+
+    private void tf34KeyTyped(KeyEvent e) {
+        cursor = tf34;
+
+        boolean max = tf34.getText().length() > 0;
+        if ( max || !(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
+            cursor = tf33;
+            tf33.requestFocusInWindow();
+        }else if(max&&Character.isLetter(e.getKeyChar())){
+            tf35.setText(Character.toString(e.getKeyChar()).toUpperCase());
+            cursor = tf35;
+            tf35.requestFocusInWindow();
+        }
+    }
+
+    private void tf35KeyTyped(KeyEvent e) {
+        cursor = tf35;
+        boolean max = tf35.getText().length() > 0;
+        if ( max ){
+            e.consume();
+        }
+        if(!(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
+            cursor = tf34;
+            tf34.requestFocusInWindow();
+        }else if(e.getKeyChar() == KeyEvent.VK_ENTER){
+            setGuessedWord(cursor);
+            if(wrd.checkArray(guessedWord.toLowerCase())){
+                findWord(cursor);
+                cursor = tf41;
+                cursor.requestFocusInWindow();
+            }
+        }
+    }
+    private void tf41KeyTyped(KeyEvent e) {
+        cursor = tf41;
+        boolean max = tf41.getText().length() > 0;
+
+        if(!(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if (max&&(Character.isLetter(e.getKeyChar()))) {
+            e.consume();
+            tf42.setText(Character.toString(e.getKeyChar()).toUpperCase());
+            cursor = tf42;
+            tf42.requestFocusInWindow();
+        }
+    }
+
+    private void tf42KeyTyped(KeyEvent e) {
+        cursor = tf42;
+        boolean max = tf42.getText().length() > 0;
+
+        if ( max || !(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+            cursor = tf41;
+            tf41.requestFocusInWindow();
+        }else if(max&&Character.isLetter(e.getKeyChar())) {
+            tf43.setText(Character.toString(e.getKeyChar()).toUpperCase());
+            cursor = tf43;
+            tf43.requestFocusInWindow();
+        }
+    }
+
+    private void tf43KeyTyped(KeyEvent e) {
+        cursor = tf43;
+        boolean max = tf43.getText().length() > 0;
+
+        if ( max || !(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
+            cursor = tf42;
+            tf42.requestFocusInWindow();
+        }else if(max&&Character.isLetter(e.getKeyChar())) {
+            tf44.setText(Character.toString(e.getKeyChar()).toUpperCase());
+            cursor = tf44;
+            tf44.requestFocusInWindow();
+        }
+    }
+
+    private void tf44KeyTyped(KeyEvent e) {
+        cursor = tf44;
+
+        boolean max = tf44.getText().length() > 0;
+        if ( max || !(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
+            cursor = tf43;
+            tf43.requestFocusInWindow();
+        }else if(max&&Character.isLetter(e.getKeyChar())){
+            tf45.setText(Character.toString(e.getKeyChar()).toUpperCase());
+            cursor = tf45;
+            tf45.requestFocusInWindow();
+        }
+    }
+
+    private void tf45KeyTyped(KeyEvent e) {
+        cursor = tf45;
+        boolean max = tf45.getText().length() > 0;
+        if ( max ){
+            e.consume();
+        }
+        if(!(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
+            cursor = tf44;
+            tf44.requestFocusInWindow();
+        }else if(e.getKeyChar() == KeyEvent.VK_ENTER){
+            setGuessedWord(cursor);
+            if(wrd.checkArray(guessedWord.toLowerCase())){
+                findWord(cursor);
+                cursor = tf51;
+                cursor.requestFocusInWindow();
+            }
+        }
+    }
+
+    private void tf51KeyTyped(KeyEvent e) {
+        cursor = tf51;
+        boolean max = tf51.getText().length() > 0;
+
+        if(!(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if (max&&(Character.isLetter(e.getKeyChar()))) {
+            e.consume();
+            tf52.setText(Character.toString(e.getKeyChar()).toUpperCase());
+            cursor = tf52;
+            tf52.requestFocusInWindow();
+        }
+    }
+
+    private void tf52KeyTyped(KeyEvent e) {
+        cursor = tf52;
+        boolean max = tf52.getText().length() > 0;
+
+        if ( max || !(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+            cursor = tf51;
+            tf51.requestFocusInWindow();
+        }else if(max&&Character.isLetter(e.getKeyChar())) {
+            tf53.setText(Character.toString(e.getKeyChar()).toUpperCase());
+            cursor = tf53;
+            tf53.requestFocusInWindow();
+        }
+    }
+
+    private void tf53KeyTyped(KeyEvent e) {
+        cursor = tf53;
+        boolean max = tf53.getText().length() > 0;
+
+        if ( max || !(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
+            cursor = tf52;
+            tf52.requestFocusInWindow();
+        }else if(max&&Character.isLetter(e.getKeyChar())) {
+            tf54.setText(Character.toString(e.getKeyChar()).toUpperCase());
+            cursor = tf54;
+            tf54.requestFocusInWindow();
+        }
+    }
+
+    private void tf54KeyTyped(KeyEvent e) {
+        cursor = tf54;
+
+        boolean max = tf54.getText().length() > 0;
+        if ( max || !(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
+            cursor = tf53;
+            tf53.requestFocusInWindow();
+        }else if(max&&Character.isLetter(e.getKeyChar())){
+            tf55.setText(Character.toString(e.getKeyChar()).toUpperCase());
+            cursor = tf55;
+            tf55.requestFocusInWindow();
+        }
+    }
+
+    private void tf55KeyTyped(KeyEvent e) {
+        cursor = tf55;
+        boolean max = tf55.getText().length() > 0;
+        if ( max ){
+            e.consume();
+        }
+        if(!(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
+            cursor = tf54;
+            tf54.requestFocusInWindow();
+        }else if(e.getKeyChar() == KeyEvent.VK_ENTER){
+            setGuessedWord(cursor);
+            if(wrd.checkArray(guessedWord.toLowerCase())){
+                findWord(cursor);
+                cursor = tf61;
+                cursor.requestFocusInWindow();
+            }
+        }
+    }
+
+    private void tf61KeyTyped(KeyEvent e) {
+        cursor = tf61;
+        boolean max = tf61.getText().length() > 0;
+
+        if(!(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if (max&&(Character.isLetter(e.getKeyChar()))) {
+            e.consume();
+            tf62.setText(Character.toString(e.getKeyChar()).toUpperCase());
+            cursor = tf62;
+            tf62.requestFocusInWindow();
+        }
+    }
+
+    private void tf62KeyTyped(KeyEvent e) {
+        cursor = tf62;
+        boolean max = tf62.getText().length() > 0;
+
+        if ( max || !(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+            cursor = tf61;
+            tf61.requestFocusInWindow();
+        }else if(max&&Character.isLetter(e.getKeyChar())) {
+            tf63.setText(Character.toString(e.getKeyChar()).toUpperCase());
+            cursor = tf63;
+            tf63.requestFocusInWindow();
+        }
+    }
+
+    private void tf63KeyTyped(KeyEvent e) {
+        cursor = tf63;
+        boolean max = tf63.getText().length() > 0;
+
+        if ( max || !(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
+            cursor = tf62;
+            tf62.requestFocusInWindow();
+        }else if(max&&Character.isLetter(e.getKeyChar())) {
+            tf64.setText(Character.toString(e.getKeyChar()).toUpperCase());
+            cursor = tf64;
+            tf64.requestFocusInWindow();
+        }
+    }
+
+    private void tf64KeyTyped(KeyEvent e) {
+        cursor = tf64;
+
+        boolean max = tf64.getText().length() > 0;
+        if ( max || !(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
+            cursor = tf63;
+            tf63.requestFocusInWindow();
+        }else if(max&&Character.isLetter(e.getKeyChar())){
+            tf65.setText(Character.toString(e.getKeyChar()).toUpperCase());
+            cursor = tf65;
+            tf65.requestFocusInWindow();
+        }
+    }
+
+    private void tf65KeyTyped(KeyEvent e) {
+        cursor = tf65;
+        boolean max = tf65.getText().length() > 0;
+        if ( max ){
+            e.consume();
+        }
+        if(!(Character.isLetter(e.getKeyChar()))){
+            e.consume();
+        }else {
+            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+        }
+
+        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
+            cursor = tf64;
+            tf64.requestFocusInWindow();
+        }else if(e.getKeyChar() == KeyEvent.VK_ENTER){
+            setGuessedWord(cursor);
+            if(wrd.checkArray(guessedWord.toLowerCase())){
+                findWord(cursor);
+            }
+        }
+    }
     private void q(ActionEvent e) {
-        if(cursor.getText().length()>0) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
            int index = textList.indexOf(cursor);
            cursor = textList.get(index+1);
+            cursor.setText("Q");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("Q");
         }
-        cursor.setText("Q");
 
-        if (!(lastOfRowList.contains(cursor))) {
-
-            cursor = textList.get(textList.indexOf(cursor) + 1);
-        }
             cursor.requestFocusInWindow();
-
     }
 
     private void dELETE(ActionEvent e) {
 
         cursor.setText("");
-        //cursor.transferFocus();
-        if (cursor != tf11 && cursor != tf21) {
+        if (!(firstOfRowList.contains(cursor))) {
             cursor = textList.get(textList.indexOf(cursor) - 1);
         }
         cursor.requestFocusInWindow();
     }
 
-
     private void eNTER(ActionEvent e) {
+        setGuessedWord(cursor);
+        int cursorposition =textList.indexOf(cursor);
+        boolean realWord = wrd.checkArray(guessedWord.toLowerCase());
 
-        if(lastOfRowList.contains(cursor)){
+        if((lastOfRowList.contains(cursor))&&cursor!=tf65&&realWord){
+            System.out.println("inside");
             findWord(cursor);
-            cursor = textList.get(textList.indexOf(cursor) + 1);
+            cursor = textList.get( cursorposition  + 1);
+        } else if ((cursor == tf65)&&wrd.checkArray(guessedWord)) {
+            findWord(cursor);
         }
         cursor.requestFocusInWindow();
     }
+    public void setGuessedWord(JTextField position){
 
-    private void findWord(JTextField position){
+        guessedWord="";
+        int rowNum = getRow(position);
+        for(int col = 0;col<text2dArray[rowNum].length;col++){
+            guessedWord +=text2dArray[rowNum][col].getText();
+        }
+    }
+    public int getRow(JTextField position){
         int rowNum = 0;
 
         for(int row = 0; row<text2dArray.length;row++){
@@ -202,11 +740,56 @@ public class nullDesign {
                 }
             }
         }
-        for(int col = 0;col<text2dArray[rowNum].length;col++){
-            guessedWord = guessedWord+text2dArray[rowNum][col].getText();
+        return rowNum;
+    }
+    private void findWord(JTextField position){
+         int rowNum = getRow(position);
+         System.out.println(rowNum);
+        String colorCheck =  wrd.colorCheck(guessedWord.toLowerCase());
+       // String coloredWord = wrd.addColor(guessedWord,colorCheck);
+        ArrayList<String> letterColor = wrd.getColor(guessedWord,colorCheck);
+        //ArrayList<String> wordleList = wrd.getWordArray();
+        System.out.println(wordle);
+        char[] wordleListChar = guessedWord.toCharArray();
+        for(int i= 0;i<text2dArray[rowNum].length;i++){
+            int letNum = ((int)(wordleListChar[i]))-65;
+            String letColor = letterColor.get(i);
+            JButton letterButton = buttonList.get(letNum);
+
+            text2dArray[rowNum][i].setForeground(Color.white);
+            if(letColor.equals("green")){
+                text2dArray[rowNum][i].setBackground(Color.GREEN);
+            }else if(letColor.equals("yellow")){
+                text2dArray[rowNum][i].setBackground(Color.ORANGE);
+            }else if(letColor.equals("grey")){
+                text2dArray[rowNum][i].setBackground(Color.gray);
+            }
+
+            text2dArray[rowNum][i].setEditable(false);
+            if(rowNum!=5){
+                text2dArray[rowNum+1][i].setEnabled(true);
+            }
+
+            letterButton.setForeground(Color.white);
+            if(letterButton.getBackground()==Color.white) {
+                if (letColor.equals("green")) {
+                    letterButton.setBackground(Color.GREEN);
+                } else if (letColor.equals("yellow")) {
+                    letterButton.setBackground(Color.ORANGE);
+                } else if (letColor.equals("grey")) {
+                    letterButton.setBackground(Color.gray);
+                }
+            }else if ((letColor.equals("green"))&&letterButton.getBackground()==Color.ORANGE) {
+                    letterButton.setBackground(Color.GREEN);
+                }
+            }
         }
 
-    }
+
+
+
+
+
 
 
 
@@ -280,55 +863,64 @@ public class nullDesign {
             //---- buttonV ----
             buttonV.setText("V");
             buttonV.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonV.setBackground(Color.white);
             frameMain.add(buttonV);
             buttonV.setBounds(475, 625, 45, 60);
 
             //---- buttonC ----
             buttonC.setText("C");
             buttonC.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonC.setBackground(Color.white);
             frameMain.add(buttonC);
             buttonC.setBounds(425, 625, 45, 60);
 
             //---- buttonX ----
             buttonX.setText("X");
             buttonX.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonX.setBackground(Color.white);
             frameMain.add(buttonX);
             buttonX.setBounds(375, 625, 45, 60);
 
             //---- buttonB ----
             buttonB.setText("B");
             buttonB.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonB.setBackground(Color.white);
             frameMain.add(buttonB);
             buttonB.setBounds(525, 625, 45, 60);
 
             //---- buttonN ----
             buttonN.setText("N");
             buttonN.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonN.setBackground(Color.white);
             frameMain.add(buttonN);
             buttonN.setBounds(575, 625, 45, 60);
 
             //---- buttonM ----
             buttonM.setText("M");
             buttonM.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonM.setBackground(Color.white);
             frameMain.add(buttonM);
             buttonM.setBounds(625, 625, 45, 60);
 
             //---- buttonZ ----
             buttonZ.setText("Z");
             buttonZ.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonZ.setBackground(Color.white);
             frameMain.add(buttonZ);
             buttonZ.setBounds(325, 625, 45, 60);
 
             //---- buttonENTER ----
             buttonENTER.setText("ENTER");
             buttonENTER.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonENTER.setBackground(Color.white);
             buttonENTER.addActionListener(e -> eNTER(e));
             frameMain.add(buttonENTER);
-            buttonENTER.setBounds(255, 625, 65, 60);
+            buttonENTER.setBounds(250, 625, 70, 60);
 
             //---- buttonDELETE ----
             buttonDELETE.setText("DEL");
             buttonDELETE.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonDELETE.setBackground(Color.white);
             buttonDELETE.addActionListener(e -> dELETE(e));
             frameMain.add(buttonDELETE);
             buttonDELETE.setBounds(675, 625, 70, 60);
@@ -336,108 +928,126 @@ public class nullDesign {
             //---- buttonG ----
             buttonG.setText("G");
             buttonG.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonG.setBackground(Color.white);
             frameMain.add(buttonG);
             buttonG.setBounds(475, 560, 45, 60);
 
             //---- buttonF ----
             buttonF.setText("F");
             buttonF.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonF.setBackground(Color.white);
             frameMain.add(buttonF);
             buttonF.setBounds(425, 560, 45, 60);
 
             //---- buttonH ----
             buttonH.setText("H");
             buttonH.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonH.setBackground(Color.white);
             frameMain.add(buttonH);
             buttonH.setBounds(525, 560, 45, 60);
 
             //---- buttonD ----
             buttonD.setText("D");
             buttonD.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonD.setBackground(Color.white);
             frameMain.add(buttonD);
             buttonD.setBounds(375, 560, 45, 60);
 
             //---- buttonJ ----
             buttonJ.setText("J");
             buttonJ.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonJ.setBackground(Color.white);
             frameMain.add(buttonJ);
             buttonJ.setBounds(575, 560, 45, 60);
 
             //---- buttonK ----
             buttonK.setText("K");
             buttonK.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonK.setBackground(Color.white);
             frameMain.add(buttonK);
             buttonK.setBounds(625, 560, 45, 60);
 
             //---- buttonL ----
             buttonL.setText("L");
             buttonL.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonL.setBackground(Color.white);
             frameMain.add(buttonL);
             buttonL.setBounds(675, 560, 45, 60);
 
             //---- buttonS ----
             buttonS.setText("S");
             buttonS.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonS.setBackground(Color.white);
             frameMain.add(buttonS);
             buttonS.setBounds(325, 560, 45, 60);
 
             //---- buttonA ----
             buttonA.setText("A");
             buttonA.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonA.setBackground(Color.white);
             frameMain.add(buttonA);
             buttonA.setBounds(275, 560, 45, 60);
 
             //---- buttonT ----
             buttonT.setText("T");
             buttonT.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonT.setBackground(Color.white);
             frameMain.add(buttonT);
             buttonT.setBounds(450, 495, 45, 60);
 
             //---- buttonY ----
             buttonY.setText("Y");
             buttonY.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonY.setBackground(Color.white);
             frameMain.add(buttonY);
             buttonY.setBounds(500, 495, 45, 60);
 
             //---- buttonU ----
             buttonU.setText("U");
             buttonU.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonU.setBackground(Color.white);
             frameMain.add(buttonU);
             buttonU.setBounds(550, 495, 45, 60);
 
             //---- buttonI ----
             buttonI.setText("I");
             buttonI.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonI.setBackground(Color.white);
             frameMain.add(buttonI);
             buttonI.setBounds(600, 495, 45, 60);
 
             //---- buttonO ----
             buttonO.setText("O");
             buttonO.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonO.setBackground(Color.white);
             frameMain.add(buttonO);
             buttonO.setBounds(650, 495, 45, 60);
 
             //---- buttonP ----
             buttonP.setText("P");
             buttonP.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonP.setBackground(Color.white);
             frameMain.add(buttonP);
             buttonP.setBounds(700, 495, 45, 60);
 
             //---- buttonR ----
             buttonR.setText("R");
             buttonR.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonR.setBackground(Color.white);
             frameMain.add(buttonR);
             buttonR.setBounds(400, 495, 45, 60);
 
             //---- buttonE ----
             buttonE.setText("E");
             buttonE.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonE.setBackground(Color.white);
             frameMain.add(buttonE);
             buttonE.setBounds(350, 495, 45, 60);
 
             //---- buttonQ ----
             buttonQ.setText("Q");
             buttonQ.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonQ.setBackground(Color.white);
             buttonQ.addActionListener(e -> q(e));
             frameMain.add(buttonQ);
             buttonQ.setBounds(250, 495, 45, 60);
@@ -445,42 +1055,73 @@ public class nullDesign {
             //---- buttonW ----
             buttonW.setText("W");
             buttonW.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            buttonW.setBackground(Color.white);
             frameMain.add(buttonW);
             buttonW.setBounds(300, 495, 45, 60);
 
             //---- tf61 ----
             tf61.setHorizontalAlignment(SwingConstants.CENTER);
-            tf61.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf61.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf61.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf61KeyTyped(e);
+                }
+            });
             frameMain.add(tf61);
             tf61.setBounds(325, 395, 60, 60);
 
             //---- tf51 ----
             tf51.setHorizontalAlignment(SwingConstants.CENTER);
-            tf51.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf51.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf51.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf51KeyTyped(e);
+                }
+            });
             frameMain.add(tf51);
             tf51.setBounds(325, 330, 60, 60);
 
             //---- tf41 ----
             tf41.setHorizontalAlignment(SwingConstants.CENTER);
-            tf41.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf41.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf41.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf41KeyTyped(e);
+                }
+            });
             frameMain.add(tf41);
             tf41.setBounds(325, 265, 60, 60);
 
             //---- tf31 ----
             tf31.setHorizontalAlignment(SwingConstants.CENTER);
-            tf31.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf31.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf31.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf31KeyTyped(e);
+                }
+            });
             frameMain.add(tf31);
             tf31.setBounds(325, 200, 60, 60);
 
             //---- tf21 ----
             tf21.setHorizontalAlignment(SwingConstants.CENTER);
-            tf21.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf21.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf21.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf21KeyTyped(e);
+                }
+            });
             frameMain.add(tf21);
             tf21.setBounds(325, 135, 60, 60);
 
             //---- tf11 ----
             tf11.setHorizontalAlignment(SwingConstants.CENTER);
-            tf11.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf11.setFont(new Font("Segoe UI", Font.BOLD, 20));
             tf11.addKeyListener(new KeyAdapter() {
                 @Override
                 public void keyTyped(KeyEvent e) {
@@ -492,37 +1133,67 @@ public class nullDesign {
 
             //---- tf62 ----
             tf62.setHorizontalAlignment(SwingConstants.CENTER);
-            tf62.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf62.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf62.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf62KeyTyped(e);
+                }
+            });
             frameMain.add(tf62);
             tf62.setBounds(395, 395, 60, 60);
 
             //---- tf52 ----
             tf52.setHorizontalAlignment(SwingConstants.CENTER);
-            tf52.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf52.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf52.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf52KeyTyped(e);
+                }
+            });
             frameMain.add(tf52);
             tf52.setBounds(395, 330, 60, 60);
 
             //---- tf42 ----
             tf42.setHorizontalAlignment(SwingConstants.CENTER);
-            tf42.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf42.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf42.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf42KeyTyped(e);
+                }
+            });
             frameMain.add(tf42);
             tf42.setBounds(395, 265, 60, 60);
 
             //---- tf32 ----
             tf32.setHorizontalAlignment(SwingConstants.CENTER);
-            tf32.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf32.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf32.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf32KeyTyped(e);
+                }
+            });
             frameMain.add(tf32);
             tf32.setBounds(395, 200, 60, 60);
 
             //---- tf22 ----
             tf22.setHorizontalAlignment(SwingConstants.CENTER);
-            tf22.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf22.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf22.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf22KeyTyped(e);
+                }
+            });
             frameMain.add(tf22);
             tf22.setBounds(395, 135, 60, 60);
 
             //---- tf12 ----
             tf12.setHorizontalAlignment(SwingConstants.CENTER);
-            tf12.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf12.setFont(new Font("Segoe UI", Font.BOLD, 20));
             tf12.addKeyListener(new KeyAdapter() {
                 @Override
                 public void keyTyped(KeyEvent e) {
@@ -534,37 +1205,67 @@ public class nullDesign {
 
             //---- tf63 ----
             tf63.setHorizontalAlignment(SwingConstants.CENTER);
-            tf63.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf63.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf63.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf63KeyTyped(e);
+                }
+            });
             frameMain.add(tf63);
             tf63.setBounds(465, 395, 60, 60);
 
             //---- tf53 ----
             tf53.setHorizontalAlignment(SwingConstants.CENTER);
-            tf53.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf53.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf53.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf53KeyTyped(e);
+                }
+            });
             frameMain.add(tf53);
             tf53.setBounds(465, 330, 60, 60);
 
             //---- tf43 ----
             tf43.setHorizontalAlignment(SwingConstants.CENTER);
-            tf43.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf43.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf43.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf43KeyTyped(e);
+                }
+            });
             frameMain.add(tf43);
             tf43.setBounds(465, 265, 60, 60);
 
             //---- tf33 ----
             tf33.setHorizontalAlignment(SwingConstants.CENTER);
-            tf33.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf33.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf33.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf33KeyTyped(e);
+                }
+            });
             frameMain.add(tf33);
             tf33.setBounds(465, 200, 60, 60);
 
             //---- tf23 ----
             tf23.setHorizontalAlignment(SwingConstants.CENTER);
-            tf23.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf23.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf23.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf23KeyTyped(e);
+                }
+            });
             frameMain.add(tf23);
             tf23.setBounds(465, 135, 60, 60);
 
             //---- tf13 ----
             tf13.setHorizontalAlignment(SwingConstants.CENTER);
-            tf13.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf13.setFont(new Font("Segoe UI", Font.BOLD, 20));
             tf13.addKeyListener(new KeyAdapter() {
                 @Override
                 public void keyTyped(KeyEvent e) {
@@ -576,67 +1277,127 @@ public class nullDesign {
 
             //---- tf64 ----
             tf64.setHorizontalAlignment(SwingConstants.CENTER);
-            tf64.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf64.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf64.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf64KeyTyped(e);
+                }
+            });
             frameMain.add(tf64);
             tf64.setBounds(535, 395, 60, 60);
 
             //---- tf54 ----
             tf54.setHorizontalAlignment(SwingConstants.CENTER);
-            tf54.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf54.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf54.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf54KeyTyped(e);
+                }
+            });
             frameMain.add(tf54);
             tf54.setBounds(535, 330, 60, 60);
 
             //---- tf44 ----
             tf44.setHorizontalAlignment(SwingConstants.CENTER);
-            tf44.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf44.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf44.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf44KeyTyped(e);
+                }
+            });
             frameMain.add(tf44);
             tf44.setBounds(535, 265, 60, 60);
 
             //---- tf65 ----
             tf65.setHorizontalAlignment(SwingConstants.CENTER);
-            tf65.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf65.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf65.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf65KeyTyped(e);
+                }
+            });
             frameMain.add(tf65);
             tf65.setBounds(605, 395, 60, 60);
 
             //---- tf55 ----
             tf55.setHorizontalAlignment(SwingConstants.CENTER);
-            tf55.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf55.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf55.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf55KeyTyped(e);
+                }
+            });
             frameMain.add(tf55);
             tf55.setBounds(605, 330, 60, 60);
 
             //---- tf34 ----
             tf34.setHorizontalAlignment(SwingConstants.CENTER);
-            tf34.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf34.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf34.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf34KeyTyped(e);
+                }
+            });
             frameMain.add(tf34);
             tf34.setBounds(535, 200, 60, 60);
 
             //---- tf45 ----
             tf45.setHorizontalAlignment(SwingConstants.CENTER);
-            tf45.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf45.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf45.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf45KeyTyped(e);
+                }
+            });
             frameMain.add(tf45);
             tf45.setBounds(605, 265, 60, 60);
 
             //---- tf35 ----
             tf35.setHorizontalAlignment(SwingConstants.CENTER);
-            tf35.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf35.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf35.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf35KeyTyped(e);
+                }
+            });
             frameMain.add(tf35);
             tf35.setBounds(605, 200, 60, 60);
 
             //---- tf24 ----
             tf24.setHorizontalAlignment(SwingConstants.CENTER);
-            tf24.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf24.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf24.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf24KeyTyped(e);
+                }
+            });
             frameMain.add(tf24);
             tf24.setBounds(535, 135, 60, 60);
 
             //---- tf25 ----
             tf25.setHorizontalAlignment(SwingConstants.CENTER);
-            tf25.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf25.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            tf25.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    tf25KeyTyped(e);
+                }
+            });
             frameMain.add(tf25);
             tf25.setBounds(605, 135, 60, 60);
 
             //---- tf14 ----
             tf14.setHorizontalAlignment(SwingConstants.CENTER);
-            tf14.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf14.setFont(new Font("Segoe UI", Font.BOLD, 20));
             tf14.addKeyListener(new KeyAdapter() {
                 @Override
                 public void keyTyped(KeyEvent e) {
@@ -648,7 +1409,7 @@ public class nullDesign {
 
             //---- tf15 ----
             tf15.setHorizontalAlignment(SwingConstants.CENTER);
-            tf15.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            tf15.setFont(new Font("Segoe UI", Font.BOLD, 20));
             tf15.addKeyListener(new KeyAdapter() {
                 @Override
                 public void keyTyped(KeyEvent e) {

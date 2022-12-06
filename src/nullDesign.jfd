@@ -9,6 +9,7 @@ new FormModel {
 				name: "buttonV"
 				"text": "V"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 475
 				"y": 625
@@ -19,6 +20,7 @@ new FormModel {
 				name: "buttonC"
 				"text": "C"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
 				"height": 60
@@ -29,6 +31,7 @@ new FormModel {
 				name: "buttonX"
 				"text": "X"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
 				"height": 60
@@ -39,6 +42,7 @@ new FormModel {
 				name: "buttonB"
 				"text": "B"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
 				"height": 60
@@ -49,6 +53,7 @@ new FormModel {
 				name: "buttonN"
 				"text": "N"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
 				"height": 60
@@ -59,6 +64,7 @@ new FormModel {
 				name: "buttonM"
 				"text": "M"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
 				"height": 60
@@ -69,6 +75,7 @@ new FormModel {
 				name: "buttonZ"
 				"text": "Z"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
 				"height": 60
@@ -79,17 +86,19 @@ new FormModel {
 				name: "buttonENTER"
 				"text": "ENTER"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "eNTER", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"width": 65
+				"width": 70
 				"height": 60
-				"x": 255
+				"x": 250
 				"y": 625
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "buttonDELETE"
 				"text": "DEL"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "dELETE", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 70
@@ -101,6 +110,7 @@ new FormModel {
 				name: "buttonG"
 				"text": "G"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
 				"height": 60
@@ -111,6 +121,7 @@ new FormModel {
 				name: "buttonF"
 				"text": "F"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
 				"height": 60
@@ -121,6 +132,7 @@ new FormModel {
 				name: "buttonH"
 				"text": "H"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
 				"height": 60
@@ -131,6 +143,7 @@ new FormModel {
 				name: "buttonD"
 				"text": "D"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
 				"height": 60
@@ -141,6 +154,7 @@ new FormModel {
 				name: "buttonJ"
 				"text": "J"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
 				"height": 60
@@ -151,6 +165,7 @@ new FormModel {
 				name: "buttonK"
 				"text": "K"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
 				"height": 60
@@ -161,6 +176,7 @@ new FormModel {
 				name: "buttonL"
 				"text": "L"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
 				"height": 60
@@ -171,6 +187,7 @@ new FormModel {
 				name: "buttonS"
 				"text": "S"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
 				"height": 60
@@ -181,6 +198,7 @@ new FormModel {
 				name: "buttonA"
 				"text": "A"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
 				"height": 60
@@ -191,6 +209,7 @@ new FormModel {
 				name: "buttonT"
 				"text": "T"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
 				"height": 60
@@ -201,6 +220,7 @@ new FormModel {
 				name: "buttonY"
 				"text": "Y"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
 				"height": 60
@@ -211,6 +231,7 @@ new FormModel {
 				name: "buttonU"
 				"text": "U"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
 				"height": 60
@@ -221,6 +242,7 @@ new FormModel {
 				name: "buttonI"
 				"text": "I"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
 				"height": 60
@@ -231,6 +253,7 @@ new FormModel {
 				name: "buttonO"
 				"text": "O"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
 				"height": 60
@@ -241,6 +264,7 @@ new FormModel {
 				name: "buttonP"
 				"text": "P"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
 				"height": 60
@@ -251,6 +275,7 @@ new FormModel {
 				name: "buttonR"
 				"text": "R"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
 				"height": 60
@@ -261,6 +286,7 @@ new FormModel {
 				name: "buttonE"
 				"text": "E"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
 				"height": 60
@@ -271,6 +297,7 @@ new FormModel {
 				name: "buttonQ"
 				"text": "Q"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "q", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 45
@@ -282,6 +309,7 @@ new FormModel {
 				name: "buttonW"
 				"text": "W"
 				"font": new java.awt.Font( "Segoe UI", 1, 11 )
+				"background": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 300
 				"y": 495
@@ -291,7 +319,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf61"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf61KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 325
 				"y": 395
@@ -301,7 +330,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf51"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf51KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -311,7 +341,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf41"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf41KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -321,7 +352,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf31"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf31KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -331,7 +363,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf21"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf21KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -341,7 +374,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf11"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
 				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf11KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
@@ -352,7 +385,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf62"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf62KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -362,7 +396,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf52"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf52KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -372,7 +407,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf42"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf42KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -382,7 +418,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf32"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf32KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -392,7 +429,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf22"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf22KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -402,7 +440,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf12"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
 				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf12KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
@@ -413,7 +451,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf63"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf63KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -423,7 +462,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf53"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf53KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -433,7 +473,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf43"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf43KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -443,7 +484,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf33"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf33KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -453,7 +495,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf23"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf23KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -463,7 +506,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf13"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
 				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf13KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
@@ -474,7 +517,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf64"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf64KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -484,7 +528,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf54"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf54KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -494,7 +539,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf44"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf44KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -504,7 +550,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf65"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf65KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -514,7 +561,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf55"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf55KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -524,7 +572,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf34"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf34KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -534,7 +583,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf45"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf45KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -544,7 +594,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf35"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf35KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -554,7 +605,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf24"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf24KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -564,7 +616,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf25"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf25KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
 				"height": 60
@@ -574,7 +627,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf14"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
 				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf14KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
@@ -585,7 +638,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf15"
 				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Segoe UI", 1, 16 )
+				"font": new java.awt.Font( "Segoe UI", 1, 20 )
 				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "tf15KeyTyped", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 60
