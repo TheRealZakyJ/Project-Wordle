@@ -46,37 +46,25 @@ public class Wordle {
     }
 
     public ArrayList<String> getWordArray(){
-
         return chosenWordArray;
     }
-
     public boolean checkArray(String gWord){
-
         return allWordList.contains(gWord);
     }
-
-
     public String wordGen(){
-
         return allWordList.get((int)(Math.random()*allWordList.size()));
     }
-
     public String getWord(){
-
         return chosenWord;
     }
 
     public boolean checkWord(String wordGuess){
-
         return wordGuess.equals(chosenWord);
-
     }
-
     public String colorCheck(String gWord){
 
         ArrayList<String> gWordArray = new ArrayList<>();
         for(int x = 0;x<gWord.length();x++){
-
             gWordArray.add(gWord.substring(x,x+1));
         }
 
@@ -102,7 +90,6 @@ public class Wordle {
                     yellowReport+=""+i;
                     continue;
                 }
-
             }
         }
         for (int a = 0;a<yellowReport.length();a++){
@@ -140,6 +127,28 @@ public class Wordle {
         }
         //System.out.println(ANSI_GREEN+wordGuess.substring(Integer.parseInt(green.substring(0,1)),green.length()));
         return colorInWord;
+    }
+    public ArrayList<String> getColor(String wordGuess, String colorCheck){
+        ArrayList<String> letterColor= new ArrayList<>();
+
+        String green = colorCheck.substring(colorCheck.indexOf("n:")+2,colorCheck.indexOf("Y")-1);
+        String yellow = colorCheck.substring(colorCheck.indexOf("w:")+2,colorCheck.lastIndexOf("G")-1);
+        String grey = colorCheck.substring(colorCheck.indexOf("y:")+2,colorCheck.length()-1);
+
+        for(int x = 0; x<wordGuess.length();x++){
+
+            if(green.contains(""+x)) {
+                letterColor.add("green");
+            }
+            else if(yellow.contains(""+x)){
+                letterColor.add("yellow");
+            }
+            else if(grey.contains(""+x)){
+                letterColor.add("grey");
+            }
+        }
+
+        return letterColor;
     }
 
     }

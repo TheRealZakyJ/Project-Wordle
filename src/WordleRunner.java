@@ -9,15 +9,10 @@ public class WordleRunner {
     private static final String ANSI_BLACK = "\u001B[30m";
 
     public static void main(String[] args) {
-        //System.out.println("wef1");
 
         Wordle wrd = new Wordle();
         System.out.println(wrd);
         System.out.println(wrd.getWord());
-
-        //  System.out.println("dsflkn");
-        //System.out.println(wrd);
-
 
         System.out.println(wrd.getWordArray());
 
@@ -51,6 +46,6 @@ public class WordleRunner {
             }
         }
 
-
     }
+
 }

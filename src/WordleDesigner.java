@@ -1,9 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 
 public class WordleDesigner extends JFrame {
     private JButton ENTERButton;
@@ -202,6 +199,7 @@ public class WordleDesigner extends JFrame {
                 tfRow6.setText(tfRow6.getText().toLowerCase().trim());
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     if (word.checkArray(tfRow6.getText().toLowerCase().trim())) {
+                        tfRow6.setBackground(Color.CYAN);
                         tfRow6.setEditable(false);
                     }
                 }
@@ -223,25 +221,36 @@ public class WordleDesigner extends JFrame {
                 super.keyTyped(e);
             }
         });
+        
         qButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
                 tfRow1.setText(tfRow1.getText() + "q");
+                tfRow1.addKeyListener(new KeyAdapter() {
+                });
             }
         });
 
 
-
+        tfRow6.addContainerListener(new ContainerAdapter() {
+            @Override
+            public void componentAdded(ContainerEvent e) {
+                System.out.println(e);
+                super.componentAdded(e);
+            }
+        });
     }
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("WordleDesigner");
         frame.setContentPane(new WordleDesigner().panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1500, 600);
+        frame.setSize(1200, 600);
         //frame.pack();
         frame.setVisible(true);
     }
+
+
 
 }
