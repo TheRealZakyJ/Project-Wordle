@@ -1,12 +1,10 @@
-import java.awt.*;
-import java.awt.event.*;
-import java.sql.SQLSyntaxErrorException;
-import java.util.*;
-import java.util.Arrays;
 import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.event.*;
-//import com.jgoodies.forms.factories.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 /*
@@ -21,16 +19,16 @@ import javax.swing.event.*;
 public class nullDesign {
 
 
-    private ArrayList<JTextField> textList;
-    private JTextField[][] text2dArray;
-    private ArrayList<JTextField> lastOfRowList;
-    private ArrayList<JTextField> firstOfRowList;
+    private final ArrayList<JTextField> textList;
+    private final JTextField[][] text2dArray;
+    private final ArrayList<JTextField> lastOfRowList;
+    private final ArrayList<JTextField> firstOfRowList;
     private JTextField cursor;
-    private ArrayList<String> wordleList;
+    private final ArrayList<String> wordleList;
     private String guessedWord;
-    private String wordle;
-    private Wordle wrd;
-    private ArrayList<JButton> buttonList;
+    private final String wordle;
+    private final Wordle wrd;
+    private final ArrayList<JButton> buttonList;
 
     public nullDesign() {
         initComponents();
@@ -694,10 +692,282 @@ public class nullDesign {
         }else if(cursor.getText().length()==0){
             cursor.setText("Q");
         }
-
             cursor.requestFocusInWindow();
     }
+    private void w(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("W");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("W");
+        }
+        cursor.requestFocusInWindow();
+    }
 
+    private void e(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("E");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("E");
+        }
+        cursor.requestFocusInWindow();
+    }
+
+    private void r(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("R");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("R");
+        }
+        cursor.requestFocusInWindow();
+    }
+
+    private void t(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("T");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("T");
+        }
+        cursor.requestFocusInWindow();
+    }
+
+    private void y(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("Y");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("Y");
+        }
+        cursor.requestFocusInWindow();
+    }
+
+    private void u(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("U");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("U");
+        }
+        cursor.requestFocusInWindow();
+    }
+
+    private void i(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("I");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("I");
+        }
+        cursor.requestFocusInWindow();
+    }
+
+    private void o(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("O");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("O");
+        }
+        cursor.requestFocusInWindow();
+    }
+
+    private void p(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("P");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("P");
+        }
+        cursor.requestFocusInWindow();
+    }
+
+    private void a(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("A");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("A");
+        }
+        cursor.requestFocusInWindow();
+    }
+
+    private void s(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("S");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("S");
+        }
+        cursor.requestFocusInWindow();
+    }
+
+    private void d(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("D");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("D");
+        }
+        cursor.requestFocusInWindow();
+    }
+
+    private void f(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("F");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("F");
+        }
+        cursor.requestFocusInWindow();
+    }
+
+    private void g(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("G");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("G");
+        }
+        cursor.requestFocusInWindow();
+    }
+
+    private void h(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("H");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("H");
+        }
+        cursor.requestFocusInWindow();
+    }
+
+    private void j(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("J");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("J");
+        }
+        cursor.requestFocusInWindow();
+    }
+
+    private void k(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("K");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("K");
+        }
+        cursor.requestFocusInWindow();
+    }
+
+    private void l(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("L");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("L");
+        }
+        cursor.requestFocusInWindow();
+    }
+
+    private void z(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("Z");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("Z");
+        }
+        cursor.requestFocusInWindow();
+    }
+
+    private void x(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("X");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("X");
+        }
+        cursor.requestFocusInWindow();
+    }
+
+    private void c(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("C");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("C");
+        }
+        cursor.requestFocusInWindow();
+    }
+
+    private void v(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("V");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("V");
+        }
+        cursor.requestFocusInWindow();
+    }
+
+    private void b(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("B");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("B");
+        }
+        cursor.requestFocusInWindow();
+    }
+
+    private void n(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("N");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("N");
+        }
+        cursor.requestFocusInWindow();
+    }
+
+    private void m(ActionEvent e) {
+        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
+            int index = textList.indexOf(cursor);
+            cursor = textList.get(index+1);
+            cursor.setText("M");
+        }else if(cursor.getText().length()==0){
+            cursor.setText("M");
+    }
+        cursor.requestFocusInWindow();
+    }
     private void dELETE(ActionEvent e) {
 
         cursor.setText("");
@@ -742,48 +1012,80 @@ public class nullDesign {
         }
         return rowNum;
     }
-    private void findWord(JTextField position){
-         int rowNum = getRow(position);
-         System.out.println(rowNum);
+    public void findWord(JTextField position){
+        int rowNum = getRow(position);
+
         String colorCheck =  wrd.colorCheck(guessedWord.toLowerCase());
-       // String coloredWord = wrd.addColor(guessedWord,colorCheck);
+
         ArrayList<String> letterColor = wrd.getColor(guessedWord,colorCheck);
-        //ArrayList<String> wordleList = wrd.getWordArray();
+
         System.out.println(wordle);
         char[] wordleListChar = guessedWord.toCharArray();
-        for(int i= 0;i<text2dArray[rowNum].length;i++){
-            int letNum = ((int)(wordleListChar[i]))-65;
-            String letColor = letterColor.get(i);
-            JButton letterButton = buttonList.get(letNum);
-
-            text2dArray[rowNum][i].setForeground(Color.white);
-            if(letColor.equals("green")){
-                text2dArray[rowNum][i].setBackground(Color.GREEN);
-            }else if(letColor.equals("yellow")){
-                text2dArray[rowNum][i].setBackground(Color.ORANGE);
-            }else if(letColor.equals("grey")){
-                text2dArray[rowNum][i].setBackground(Color.gray);
+        if(wrd.checkWord(guessedWord.toLowerCase())){
+            greenTFields(rowNum);
+            for(int i =0;i<5;i++){
+                JButton currentButton =findButton(wordleListChar,letterColor,i);
+                currentButton.setForeground(Color.white);
+                currentButton.setBackground(Color.GREEN);
             }
+        }else {
+            for (int i = 0; i < text2dArray[rowNum].length; i++) {
+                int letNum = ((int) (wordleListChar[i])) - 65;
+                String letColor = letterColor.get(i);
+                JButton letterButton = buttonList.get(letNum);
 
-            text2dArray[rowNum][i].setEditable(false);
-            if(rowNum!=5){
-                text2dArray[rowNum+1][i].setEnabled(true);
-            }
-
-            letterButton.setForeground(Color.white);
-            if(letterButton.getBackground()==Color.white) {
+                text2dArray[rowNum][i].setForeground(Color.white);
                 if (letColor.equals("green")) {
-                    letterButton.setBackground(Color.GREEN);
+                    text2dArray[rowNum][i].setBackground(Color.GREEN);
                 } else if (letColor.equals("yellow")) {
-                    letterButton.setBackground(Color.ORANGE);
+                    text2dArray[rowNum][i].setBackground(Color.ORANGE);
                 } else if (letColor.equals("grey")) {
-                    letterButton.setBackground(Color.gray);
+                    text2dArray[rowNum][i].setBackground(Color.gray);
                 }
-            }else if ((letColor.equals("green"))&&letterButton.getBackground()==Color.ORANGE) {
-                    letterButton.setBackground(Color.GREEN);
+
+                text2dArray[rowNum][i].setEditable(false);
+                if (rowNum != 5) {
+                    text2dArray[rowNum + 1][i].setEnabled(true);
                 }
+                changeButtonColor(letColor, letterButton);
             }
         }
+        if(wrd.checkWord(guessedWord.toLowerCase())||rowNum==5){
+            titleLabel.setText(wordle.toUpperCase());
+        }
+    }
+    public JButton findButton(char[] wordleListChar,ArrayList<String> letterColor,int i){
+        int letNum = ((int) (wordleListChar[i])) - 65;
+        String letColor = letterColor.get(i);
+        JButton letterButton = buttonList.get(letNum);
+        return letterButton;
+    }
+        public void changeButtonColor(String letterColor,JButton currentButton){
+            currentButton.setForeground(Color.white);
+            if(currentButton.getBackground()==Color.white) {
+                if (letterColor.equals("green")) {
+                    currentButton.setBackground(Color.GREEN);
+                } else if (letterColor.equals("yellow")) {
+                    currentButton.setBackground(Color.ORANGE);
+                } else if (letterColor.equals("grey")) {
+                    currentButton.setBackground(Color.gray);
+                }
+            }else if ((letterColor.equals("green"))&&currentButton.getBackground()==Color.ORANGE) {
+                currentButton.setBackground(Color.GREEN);
+            }
+        }
+        public void greenTFields(int rowNum){
+        for(int i =0;i<guessedWord.length();i++) {
+            text2dArray[rowNum][i].setForeground(Color.white);
+            text2dArray[rowNum][i].setBackground(Color.GREEN);
+            text2dArray[rowNum][i].setEditable(false);
+
+        }
+        }
+
+
+
+
 
 
 
@@ -854,7 +1156,7 @@ public class nullDesign {
         tf25 = new JTextField();
         tf14 = new JTextField();
         tf15 = new JTextField();
-        label1 = new JLabel();
+        titleLabel = new JLabel();
 
         //======== frameMain ========
         {
@@ -864,6 +1166,7 @@ public class nullDesign {
             buttonV.setText("V");
             buttonV.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonV.setBackground(Color.white);
+            buttonV.addActionListener(e -> v(e));
             frameMain.add(buttonV);
             buttonV.setBounds(475, 625, 45, 60);
 
@@ -871,6 +1174,7 @@ public class nullDesign {
             buttonC.setText("C");
             buttonC.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonC.setBackground(Color.white);
+            buttonC.addActionListener(e -> c(e));
             frameMain.add(buttonC);
             buttonC.setBounds(425, 625, 45, 60);
 
@@ -878,6 +1182,7 @@ public class nullDesign {
             buttonX.setText("X");
             buttonX.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonX.setBackground(Color.white);
+            buttonX.addActionListener(e -> x(e));
             frameMain.add(buttonX);
             buttonX.setBounds(375, 625, 45, 60);
 
@@ -885,6 +1190,7 @@ public class nullDesign {
             buttonB.setText("B");
             buttonB.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonB.setBackground(Color.white);
+            buttonB.addActionListener(e -> b(e));
             frameMain.add(buttonB);
             buttonB.setBounds(525, 625, 45, 60);
 
@@ -892,6 +1198,7 @@ public class nullDesign {
             buttonN.setText("N");
             buttonN.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonN.setBackground(Color.white);
+            buttonN.addActionListener(e -> n(e));
             frameMain.add(buttonN);
             buttonN.setBounds(575, 625, 45, 60);
 
@@ -899,6 +1206,7 @@ public class nullDesign {
             buttonM.setText("M");
             buttonM.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonM.setBackground(Color.white);
+            buttonM.addActionListener(e -> m(e));
             frameMain.add(buttonM);
             buttonM.setBounds(625, 625, 45, 60);
 
@@ -906,6 +1214,7 @@ public class nullDesign {
             buttonZ.setText("Z");
             buttonZ.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonZ.setBackground(Color.white);
+            buttonZ.addActionListener(e -> z(e));
             frameMain.add(buttonZ);
             buttonZ.setBounds(325, 625, 45, 60);
 
@@ -929,6 +1238,7 @@ public class nullDesign {
             buttonG.setText("G");
             buttonG.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonG.setBackground(Color.white);
+            buttonG.addActionListener(e -> g(e));
             frameMain.add(buttonG);
             buttonG.setBounds(475, 560, 45, 60);
 
@@ -936,6 +1246,7 @@ public class nullDesign {
             buttonF.setText("F");
             buttonF.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonF.setBackground(Color.white);
+            buttonF.addActionListener(e -> f(e));
             frameMain.add(buttonF);
             buttonF.setBounds(425, 560, 45, 60);
 
@@ -943,6 +1254,7 @@ public class nullDesign {
             buttonH.setText("H");
             buttonH.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonH.setBackground(Color.white);
+            buttonH.addActionListener(e -> h(e));
             frameMain.add(buttonH);
             buttonH.setBounds(525, 560, 45, 60);
 
@@ -950,6 +1262,7 @@ public class nullDesign {
             buttonD.setText("D");
             buttonD.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonD.setBackground(Color.white);
+            buttonD.addActionListener(e -> d(e));
             frameMain.add(buttonD);
             buttonD.setBounds(375, 560, 45, 60);
 
@@ -957,6 +1270,7 @@ public class nullDesign {
             buttonJ.setText("J");
             buttonJ.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonJ.setBackground(Color.white);
+            buttonJ.addActionListener(e -> j(e));
             frameMain.add(buttonJ);
             buttonJ.setBounds(575, 560, 45, 60);
 
@@ -964,6 +1278,7 @@ public class nullDesign {
             buttonK.setText("K");
             buttonK.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonK.setBackground(Color.white);
+            buttonK.addActionListener(e -> k(e));
             frameMain.add(buttonK);
             buttonK.setBounds(625, 560, 45, 60);
 
@@ -971,6 +1286,7 @@ public class nullDesign {
             buttonL.setText("L");
             buttonL.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonL.setBackground(Color.white);
+            buttonL.addActionListener(e -> l(e));
             frameMain.add(buttonL);
             buttonL.setBounds(675, 560, 45, 60);
 
@@ -978,6 +1294,7 @@ public class nullDesign {
             buttonS.setText("S");
             buttonS.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonS.setBackground(Color.white);
+            buttonS.addActionListener(e -> s(e));
             frameMain.add(buttonS);
             buttonS.setBounds(325, 560, 45, 60);
 
@@ -985,6 +1302,7 @@ public class nullDesign {
             buttonA.setText("A");
             buttonA.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonA.setBackground(Color.white);
+            buttonA.addActionListener(e -> a(e));
             frameMain.add(buttonA);
             buttonA.setBounds(275, 560, 45, 60);
 
@@ -992,6 +1310,7 @@ public class nullDesign {
             buttonT.setText("T");
             buttonT.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonT.setBackground(Color.white);
+            buttonT.addActionListener(e -> t(e));
             frameMain.add(buttonT);
             buttonT.setBounds(450, 495, 45, 60);
 
@@ -999,6 +1318,7 @@ public class nullDesign {
             buttonY.setText("Y");
             buttonY.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonY.setBackground(Color.white);
+            buttonY.addActionListener(e -> y(e));
             frameMain.add(buttonY);
             buttonY.setBounds(500, 495, 45, 60);
 
@@ -1006,6 +1326,7 @@ public class nullDesign {
             buttonU.setText("U");
             buttonU.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonU.setBackground(Color.white);
+            buttonU.addActionListener(e -> u(e));
             frameMain.add(buttonU);
             buttonU.setBounds(550, 495, 45, 60);
 
@@ -1013,6 +1334,7 @@ public class nullDesign {
             buttonI.setText("I");
             buttonI.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonI.setBackground(Color.white);
+            buttonI.addActionListener(e -> i(e));
             frameMain.add(buttonI);
             buttonI.setBounds(600, 495, 45, 60);
 
@@ -1020,6 +1342,7 @@ public class nullDesign {
             buttonO.setText("O");
             buttonO.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonO.setBackground(Color.white);
+            buttonO.addActionListener(e -> o(e));
             frameMain.add(buttonO);
             buttonO.setBounds(650, 495, 45, 60);
 
@@ -1027,6 +1350,7 @@ public class nullDesign {
             buttonP.setText("P");
             buttonP.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonP.setBackground(Color.white);
+            buttonP.addActionListener(e -> p(e));
             frameMain.add(buttonP);
             buttonP.setBounds(700, 495, 45, 60);
 
@@ -1034,6 +1358,7 @@ public class nullDesign {
             buttonR.setText("R");
             buttonR.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonR.setBackground(Color.white);
+            buttonR.addActionListener(e -> r(e));
             frameMain.add(buttonR);
             buttonR.setBounds(400, 495, 45, 60);
 
@@ -1041,6 +1366,7 @@ public class nullDesign {
             buttonE.setText("E");
             buttonE.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonE.setBackground(Color.white);
+            buttonE.addActionListener(e -> e(e));
             frameMain.add(buttonE);
             buttonE.setBounds(350, 495, 45, 60);
 
@@ -1056,6 +1382,7 @@ public class nullDesign {
             buttonW.setText("W");
             buttonW.setFont(new Font("Segoe UI", Font.BOLD, 11));
             buttonW.setBackground(Color.white);
+            buttonW.addActionListener(e -> w(e));
             frameMain.add(buttonW);
             buttonW.setBounds(300, 495, 45, 60);
 
@@ -1419,12 +1746,12 @@ public class nullDesign {
             frameMain.add(tf15);
             tf15.setBounds(605, 70, 60, 60);
 
-            //---- label1 ----
-            label1.setText("Wordle");
-            label1.setHorizontalAlignment(SwingConstants.CENTER);
-            label1.setFont(new Font("Segoe UI Black", Font.BOLD, 18));
-            frameMain.add(label1);
-            label1.setBounds(445, 20, 105, 25);
+            //---- titleLabel ----
+            titleLabel.setText("Wordle");
+            titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            titleLabel.setFont(new Font("Segoe UI Black", Font.BOLD, 18));
+            frameMain.add(titleLabel);
+            titleLabel.setBounds(445, 20, 105, 25);
 
             {
                 // compute preferred size
@@ -1505,6 +1832,6 @@ public class nullDesign {
     private JTextField tf25;
     private JTextField tf14;
     private JTextField tf15;
-    private JLabel label1;
+    private JLabel titleLabel;
     // JFormDesigner - End of variables declaration  //GEN-END:variables  @formatter:on
 }
