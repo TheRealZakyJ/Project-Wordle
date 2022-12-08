@@ -24,7 +24,6 @@ public class nullDesign {
     private final ArrayList<JTextField> lastOfRowList;
     private final ArrayList<JTextField> firstOfRowList;
     private JTextField cursor;
-    private final ArrayList<String> wordleList;
     private String guessedWord;
     private final String wordle;
     private final Wordle wrd;
@@ -47,7 +46,7 @@ public class nullDesign {
         text2dArray = new JTextField[][]{{tf11, tf12, tf13, tf14, tf15},{tf21,tf22,tf23,tf24,tf25},{tf31,tf32,tf33,tf34,tf35},
                 {tf41,tf42,tf43,tf44,tf45},{tf51,tf52,tf53,tf54,tf55},{tf61,tf62,tf63,tf64,tf65}};
         wrd = new Wordle();
-        wordleList = wrd.getWordArray();
+
         wordle = wrd.getWord();
         for(int i = 1; i<text2dArray.length;i++){
             for(int j = 0;j<text2dArray[i].length;j++){
@@ -983,10 +982,10 @@ public class nullDesign {
         boolean realWord = wrd.checkArray(guessedWord.toLowerCase());
 
         if((lastOfRowList.contains(cursor))&&cursor!=tf65&&realWord){
-            System.out.println("inside");
+
             findWord(cursor);
             cursor = textList.get( cursorposition  + 1);
-        } else if ((cursor == tf65)&&wrd.checkArray(guessedWord)) {
+        } else if ((cursor == tf65)&&realWord) {
             findWord(cursor);
         }
         cursor.requestFocusInWindow();
@@ -1024,7 +1023,7 @@ public class nullDesign {
         if(wrd.checkWord(guessedWord.toLowerCase())){
             greenTFields(rowNum);
             for(int i =0;i<5;i++){
-                JButton currentButton =findButton(wordleListChar,letterColor,i);
+                JButton currentButton =findButton(wordleListChar, i);
                 currentButton.setForeground(Color.white);
                 currentButton.setBackground(Color.GREEN);
             }
@@ -1035,12 +1034,16 @@ public class nullDesign {
                 JButton letterButton = buttonList.get(letNum);
 
                 text2dArray[rowNum][i].setForeground(Color.white);
-                if (letColor.equals("green")) {
-                    text2dArray[rowNum][i].setBackground(Color.GREEN);
-                } else if (letColor.equals("yellow")) {
-                    text2dArray[rowNum][i].setBackground(Color.ORANGE);
-                } else if (letColor.equals("grey")) {
-                    text2dArray[rowNum][i].setBackground(Color.gray);
+                switch (letColor) {
+                    case "green":
+                        text2dArray[rowNum][i].setBackground(Color.GREEN);
+                        break;
+                    case "yellow":
+                        text2dArray[rowNum][i].setBackground(Color.ORANGE);
+                        break;
+                    case "grey":
+                        text2dArray[rowNum][i].setBackground(Color.gray);
+                        break;
                 }
 
                 text2dArray[rowNum][i].setEditable(false);
@@ -1054,21 +1057,23 @@ public class nullDesign {
             titleLabel.setText(wordle.toUpperCase());
         }
     }
-    public JButton findButton(char[] wordleListChar,ArrayList<String> letterColor,int i){
+    public JButton findButton(char[] wordleListChar, int i){
         int letNum = ((int) (wordleListChar[i])) - 65;
-        String letColor = letterColor.get(i);
-        JButton letterButton = buttonList.get(letNum);
-        return letterButton;
+        return buttonList.get(letNum);
     }
         public void changeButtonColor(String letterColor,JButton currentButton){
             currentButton.setForeground(Color.white);
             if(currentButton.getBackground()==Color.white) {
-                if (letterColor.equals("green")) {
-                    currentButton.setBackground(Color.GREEN);
-                } else if (letterColor.equals("yellow")) {
-                    currentButton.setBackground(Color.ORANGE);
-                } else if (letterColor.equals("grey")) {
-                    currentButton.setBackground(Color.gray);
+                switch (letterColor) {
+                    case "green":
+                        currentButton.setBackground(Color.GREEN);
+                        break;
+                    case "yellow":
+                        currentButton.setBackground(Color.ORANGE);
+                        break;
+                    case "grey":
+                        currentButton.setBackground(Color.gray);
+                        break;
                 }
             }else if ((letterColor.equals("green"))&&currentButton.getBackground()==Color.ORANGE) {
                 currentButton.setBackground(Color.GREEN);
