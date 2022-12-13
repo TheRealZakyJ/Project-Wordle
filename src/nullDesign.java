@@ -63,915 +63,1084 @@ public class nullDesign {
 
     }
     private void tf11KeyTyped(KeyEvent e) {
-        cursor = tf11;
-        boolean max = tf11.getText().length() > 0;
 
-        if(!(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf11;
+            boolean max = tf11.getText().length() > 0;
 
-        if (max&&(Character.isLetter(e.getKeyChar()))) {
-            e.consume();
-            tf12.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf12;
-            tf12.requestFocusInWindow();
-        }
+            if (!(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
 
+            if (max && (Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+                tf12.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf12;
+                tf12.requestFocusInWindow();
+            }
+        }
     }
 
     private void tf12KeyTyped(KeyEvent e) {
-        cursor = tf12;
-        boolean max = tf12.getText().length() > 0;
-
-        if ( max || !(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf12;
+            boolean max = tf12.getText().length() > 0;
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
-            cursor = tf11;
-            tf11.requestFocusInWindow();
-        }else if(max&&Character.isLetter(e.getKeyChar())) {
-            tf13.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf13;
-            tf13.requestFocusInWindow();
+            if (max || !(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf11;
+                tf11.requestFocusInWindow();
+            } else if (max && Character.isLetter(e.getKeyChar())) {
+                tf13.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf13;
+                tf13.requestFocusInWindow();
+            }
         }
     }
 
     private void tf13KeyTyped(KeyEvent e) {
-        cursor = tf13;
-        boolean max = tf13.getText().length() > 0;
-
-        if ( max || !(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
-
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf13;
+            boolean max = tf13.getText().length() > 0;
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
-            cursor = tf12;
-            tf12.requestFocusInWindow();
-        }else if(max&&Character.isLetter(e.getKeyChar())) {
-            tf14.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf14;
-            tf14.requestFocusInWindow();
+            if (max || !(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf12;
+                tf12.requestFocusInWindow();
+            } else if (max && Character.isLetter(e.getKeyChar())) {
+                tf14.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf14;
+                tf14.requestFocusInWindow();
+            }
         }
     }
     private void tf14KeyTyped(KeyEvent e) {
-        cursor = tf14;
-
-        boolean max = tf14.getText().length() > 0;
-        if ( max || !(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf14;
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
-            cursor = tf13;
-            tf13.requestFocusInWindow();
-        }else if(max&&Character.isLetter(e.getKeyChar())){
-            tf15.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf15;
-            tf15.requestFocusInWindow();
+            boolean max = tf14.getText().length() > 0;
+            if (max || !(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf13;
+                tf13.requestFocusInWindow();
+            } else if (max && Character.isLetter(e.getKeyChar())) {
+                tf15.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf15;
+                tf15.requestFocusInWindow();
+            }
         }
     }
 
     private void tf15KeyTyped(KeyEvent e) {
-        cursor = tf15;
-        boolean max = tf15.getText().length() > 0;
-        if ( max ){
-            e.consume();
-        }
-        if(!(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
-
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
-            cursor = tf14;
-            tf14.requestFocusInWindow();
-        }else if(e.getKeyChar() == KeyEvent.VK_ENTER){
-
-            setGuessedWord(cursor);
-
-            if(wrd.checkArray(guessedWord.toLowerCase())){
-
-                findWord(tf15);
-                cursor = tf21;
-                cursor.requestFocusInWindow();
+            cursor = tf15;
+            boolean max = tf15.getText().length() > 0;
+            if (max) {
+                e.consume();
+            }
+            if (!(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf14;
+                tf14.requestFocusInWindow();
+            } else if (e.getKeyChar() == KeyEvent.VK_ENTER) {
+                setGuessedWord(cursor);
+                if (wrd.checkArray(guessedWord.toLowerCase())) {
+                    findWord(tf15);
+                    cursor = tf21;
+                    cursor.requestFocusInWindow();
+                }
             }
         }
     }
     private void tf21KeyTyped(KeyEvent e) {
-        cursor = tf21;
-        boolean max = tf21.getText().length() > 0;
-
-        if(!(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf21;
+            boolean max = tf21.getText().length() > 0;
 
-        if (max&&(Character.isLetter(e.getKeyChar()))) {
-            e.consume();
-            tf22.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf22;
-            tf22.requestFocusInWindow();
+            if (!(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+
+            if (max && (Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+                tf22.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf22;
+                tf22.requestFocusInWindow();
+            }
         }
     }
 
     private void tf22KeyTyped(KeyEvent e) {
-        cursor = tf22;
-        boolean max = tf22.getText().length() > 0;
-
-        if ( max || !(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf22;
+            boolean max = tf22.getText().length() > 0;
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
-            cursor = tf21;
-            tf21.requestFocusInWindow();
-        }else if(max&&Character.isLetter(e.getKeyChar())) {
-            tf23.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf23;
-            tf23.requestFocusInWindow();
+            if (max || !(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf21;
+                tf21.requestFocusInWindow();
+            } else if (max && Character.isLetter(e.getKeyChar())) {
+                tf23.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf23;
+                tf23.requestFocusInWindow();
+            }
         }
     }
 
     private void tf23KeyTyped(KeyEvent e) {
-        cursor = tf23;
-        boolean max = tf23.getText().length() > 0;
-
-        if ( max || !(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
-
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf23;
+            boolean max = tf23.getText().length() > 0;
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
-            cursor = tf22;
-            tf22.requestFocusInWindow();
-        }else if(max&&Character.isLetter(e.getKeyChar())) {
-            tf24.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf24;
-            tf24.requestFocusInWindow();
+            if (max || !(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf22;
+                tf22.requestFocusInWindow();
+            } else if (max && Character.isLetter(e.getKeyChar())) {
+                tf24.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf24;
+                tf24.requestFocusInWindow();
+            }
         }
     }
 
     private void tf24KeyTyped(KeyEvent e) {
-        cursor = tf24;
-
-        boolean max = tf24.getText().length() > 0;
-        if ( max || !(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf24;
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
-            cursor = tf23;
-            tf23.requestFocusInWindow();
-        }else if(max&&Character.isLetter(e.getKeyChar())){
-            tf25.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf25;
-            tf25.requestFocusInWindow();
+            boolean max = tf24.getText().length() > 0;
+            if (max || !(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf23;
+                tf23.requestFocusInWindow();
+            } else if (max && Character.isLetter(e.getKeyChar())) {
+                tf25.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf25;
+                tf25.requestFocusInWindow();
+            }
         }
     }
 
     private void tf25KeyTyped(KeyEvent e) {
-        cursor = tf25;
-        boolean max = tf25.getText().length() > 0;
-        if ( max ){
-            e.consume();
-        }
-        if(!(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf25;
+            boolean max = tf25.getText().length() > 0;
+            if (max) {
+                e.consume();
+            }
+            if (!(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
-            cursor = tf24;
-            tf24.requestFocusInWindow();
-        }else if(e.getKeyChar() == KeyEvent.VK_ENTER){
-            setGuessedWord(cursor);
-            if(wrd.checkArray(guessedWord.toLowerCase())){
-                findWord(cursor);
-                cursor = tf31;
-                cursor.requestFocusInWindow();
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf24;
+                tf24.requestFocusInWindow();
+            } else if (e.getKeyChar() == KeyEvent.VK_ENTER) {
+                setGuessedWord(cursor);
+                if (wrd.checkArray(guessedWord.toLowerCase())) {
+                    findWord(cursor);
+                    cursor = tf31;
+                    cursor.requestFocusInWindow();
+                }
             }
         }
     }
     private void tf31KeyTyped(KeyEvent e) {
-        cursor = tf31;
-        boolean max = tf31.getText().length() > 0;
-
-        if(!(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf31;
+            boolean max = tf31.getText().length() > 0;
 
-        if (max&&(Character.isLetter(e.getKeyChar()))) {
-            e.consume();
-            tf32.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf32;
-            tf32.requestFocusInWindow();
+            if (!(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+
+            if (max && (Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+                tf32.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf32;
+                tf32.requestFocusInWindow();
+            }
         }
     }
 
     private void tf32KeyTyped(KeyEvent e) {
-        cursor = tf32;
-        boolean max = tf32.getText().length() > 0;
-
-        if ( max || !(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf32;
+            boolean max = tf32.getText().length() > 0;
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
-            cursor = tf31;
-            tf31.requestFocusInWindow();
-        }else if(max&&Character.isLetter(e.getKeyChar())) {
-            tf33.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf33;
-            tf33.requestFocusInWindow();
+            if (max || !(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf31;
+                tf31.requestFocusInWindow();
+            } else if (max && Character.isLetter(e.getKeyChar())) {
+                tf33.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf33;
+                tf33.requestFocusInWindow();
+            }
         }
     }
 
     private void tf33KeyTyped(KeyEvent e) {
-        cursor = tf33;
-        boolean max = tf33.getText().length() > 0;
-
-        if ( max || !(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
-
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf33;
+            boolean max = tf33.getText().length() > 0;
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
-            cursor = tf32;
-            tf32.requestFocusInWindow();
-        }else if(max&&Character.isLetter(e.getKeyChar())) {
-            tf34.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf34;
-            tf34.requestFocusInWindow();
+            if (max || !(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf32;
+                tf32.requestFocusInWindow();
+            } else if (max && Character.isLetter(e.getKeyChar())) {
+                tf34.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf34;
+                tf34.requestFocusInWindow();
+            }
         }
     }
 
     private void tf34KeyTyped(KeyEvent e) {
-        cursor = tf34;
-
-        boolean max = tf34.getText().length() > 0;
-        if ( max || !(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf34;
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
-            cursor = tf33;
-            tf33.requestFocusInWindow();
-        }else if(max&&Character.isLetter(e.getKeyChar())){
-            tf35.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf35;
-            tf35.requestFocusInWindow();
+            boolean max = tf34.getText().length() > 0;
+            if (max || !(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf33;
+                tf33.requestFocusInWindow();
+            } else if (max && Character.isLetter(e.getKeyChar())) {
+                tf35.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf35;
+                tf35.requestFocusInWindow();
+            }
         }
     }
 
     private void tf35KeyTyped(KeyEvent e) {
-        cursor = tf35;
-        boolean max = tf35.getText().length() > 0;
-        if ( max ){
-            e.consume();
-        }
-        if(!(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf35;
+            boolean max = tf35.getText().length() > 0;
+            if (max) {
+                e.consume();
+            }
+            if (!(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
-            cursor = tf34;
-            tf34.requestFocusInWindow();
-        }else if(e.getKeyChar() == KeyEvent.VK_ENTER){
-            setGuessedWord(cursor);
-            if(wrd.checkArray(guessedWord.toLowerCase())){
-                findWord(cursor);
-                cursor = tf41;
-                cursor.requestFocusInWindow();
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf34;
+                tf34.requestFocusInWindow();
+            } else if (e.getKeyChar() == KeyEvent.VK_ENTER) {
+                setGuessedWord(cursor);
+                if (wrd.checkArray(guessedWord.toLowerCase())) {
+                    findWord(cursor);
+                    cursor = tf41;
+                    cursor.requestFocusInWindow();
+                }
             }
         }
     }
     private void tf41KeyTyped(KeyEvent e) {
-        cursor = tf41;
-        boolean max = tf41.getText().length() > 0;
-
-        if(!(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf41;
+            boolean max = tf41.getText().length() > 0;
 
-        if (max&&(Character.isLetter(e.getKeyChar()))) {
-            e.consume();
-            tf42.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf42;
-            tf42.requestFocusInWindow();
+            if (!(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+
+            if (max && (Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+                tf42.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf42;
+                tf42.requestFocusInWindow();
+            }
         }
     }
 
     private void tf42KeyTyped(KeyEvent e) {
-        cursor = tf42;
-        boolean max = tf42.getText().length() > 0;
-
-        if ( max || !(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf42;
+            boolean max = tf42.getText().length() > 0;
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
-            cursor = tf41;
-            tf41.requestFocusInWindow();
-        }else if(max&&Character.isLetter(e.getKeyChar())) {
-            tf43.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf43;
-            tf43.requestFocusInWindow();
+            if (max || !(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf41;
+                tf41.requestFocusInWindow();
+            } else if (max && Character.isLetter(e.getKeyChar())) {
+                tf43.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf43;
+                tf43.requestFocusInWindow();
+            }
         }
     }
 
     private void tf43KeyTyped(KeyEvent e) {
-        cursor = tf43;
-        boolean max = tf43.getText().length() > 0;
-
-        if ( max || !(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
-
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf43;
+            boolean max = tf43.getText().length() > 0;
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
-            cursor = tf42;
-            tf42.requestFocusInWindow();
-        }else if(max&&Character.isLetter(e.getKeyChar())) {
-            tf44.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf44;
-            tf44.requestFocusInWindow();
+            if (max || !(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf42;
+                tf42.requestFocusInWindow();
+            } else if (max && Character.isLetter(e.getKeyChar())) {
+                tf44.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf44;
+                tf44.requestFocusInWindow();
+            }
         }
     }
 
     private void tf44KeyTyped(KeyEvent e) {
-        cursor = tf44;
-
-        boolean max = tf44.getText().length() > 0;
-        if ( max || !(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf44;
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
-            cursor = tf43;
-            tf43.requestFocusInWindow();
-        }else if(max&&Character.isLetter(e.getKeyChar())){
-            tf45.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf45;
-            tf45.requestFocusInWindow();
+            boolean max = tf44.getText().length() > 0;
+            if (max || !(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf43;
+                tf43.requestFocusInWindow();
+            } else if (max && Character.isLetter(e.getKeyChar())) {
+                tf45.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf45;
+                tf45.requestFocusInWindow();
+            }
         }
     }
 
     private void tf45KeyTyped(KeyEvent e) {
-        cursor = tf45;
-        boolean max = tf45.getText().length() > 0;
-        if ( max ){
-            e.consume();
-        }
-        if(!(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf45;
+            boolean max = tf45.getText().length() > 0;
+            if (max) {
+                e.consume();
+            }
+            if (!(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
-            cursor = tf44;
-            tf44.requestFocusInWindow();
-        }else if(e.getKeyChar() == KeyEvent.VK_ENTER){
-            setGuessedWord(cursor);
-            if(wrd.checkArray(guessedWord.toLowerCase())){
-                findWord(cursor);
-                cursor = tf51;
-                cursor.requestFocusInWindow();
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf44;
+                tf44.requestFocusInWindow();
+            } else if (e.getKeyChar() == KeyEvent.VK_ENTER) {
+                setGuessedWord(cursor);
+                if (wrd.checkArray(guessedWord.toLowerCase())) {
+                    findWord(cursor);
+                    cursor = tf51;
+                    cursor.requestFocusInWindow();
+                }
             }
         }
     }
 
     private void tf51KeyTyped(KeyEvent e) {
-        cursor = tf51;
-        boolean max = tf51.getText().length() > 0;
-
-        if(!(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf51;
+            boolean max = tf51.getText().length() > 0;
 
-        if (max&&(Character.isLetter(e.getKeyChar()))) {
-            e.consume();
-            tf52.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf52;
-            tf52.requestFocusInWindow();
+            if (!(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+
+            if (max && (Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+                tf52.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf52;
+                tf52.requestFocusInWindow();
+            }
         }
     }
 
     private void tf52KeyTyped(KeyEvent e) {
-        cursor = tf52;
-        boolean max = tf52.getText().length() > 0;
-
-        if ( max || !(Character.isLetter(e.getKeyChar()))){
+        if (!cursor.isEditable() || !cursor.isEnabled()) {
             e.consume();
-        }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+        } else {
+            cursor = tf52;
+            boolean max = tf52.getText().length() > 0;
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
-            cursor = tf51;
-            tf51.requestFocusInWindow();
-        }else if(max&&Character.isLetter(e.getKeyChar())) {
-            tf53.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf53;
-            tf53.requestFocusInWindow();
+            if (max || !(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf51;
+                tf51.requestFocusInWindow();
+            } else if (max && Character.isLetter(e.getKeyChar())) {
+                tf53.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf53;
+                tf53.requestFocusInWindow();
+            }
         }
     }
 
     private void tf53KeyTyped(KeyEvent e) {
-        cursor = tf53;
-        boolean max = tf53.getText().length() > 0;
-
-        if ( max || !(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
-
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf53;
+            boolean max = tf53.getText().length() > 0;
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
-            cursor = tf52;
-            tf52.requestFocusInWindow();
-        }else if(max&&Character.isLetter(e.getKeyChar())) {
-            tf54.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf54;
-            tf54.requestFocusInWindow();
+            if (max || !(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf52;
+                tf52.requestFocusInWindow();
+            } else if (max && Character.isLetter(e.getKeyChar())) {
+                tf54.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf54;
+                tf54.requestFocusInWindow();
+            }
         }
     }
 
     private void tf54KeyTyped(KeyEvent e) {
-        cursor = tf54;
-
-        boolean max = tf54.getText().length() > 0;
-        if ( max || !(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf54;
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
-            cursor = tf53;
-            tf53.requestFocusInWindow();
-        }else if(max&&Character.isLetter(e.getKeyChar())){
-            tf55.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf55;
-            tf55.requestFocusInWindow();
+            boolean max = tf54.getText().length() > 0;
+            if (max || !(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf53;
+                tf53.requestFocusInWindow();
+            } else if (max && Character.isLetter(e.getKeyChar())) {
+                tf55.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf55;
+                tf55.requestFocusInWindow();
+            }
         }
     }
 
     private void tf55KeyTyped(KeyEvent e) {
-        cursor = tf55;
-        boolean max = tf55.getText().length() > 0;
-        if ( max ){
-            e.consume();
-        }
-        if(!(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf55;
+            boolean max = tf55.getText().length() > 0;
+            if (max) {
+                e.consume();
+            }
+            if (!(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
-            cursor = tf54;
-            tf54.requestFocusInWindow();
-        }else if(e.getKeyChar() == KeyEvent.VK_ENTER){
-            setGuessedWord(cursor);
-            if(wrd.checkArray(guessedWord.toLowerCase())){
-                findWord(cursor);
-                cursor = tf61;
-                cursor.requestFocusInWindow();
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf54;
+                tf54.requestFocusInWindow();
+            } else if (e.getKeyChar() == KeyEvent.VK_ENTER) {
+                setGuessedWord(cursor);
+                if (wrd.checkArray(guessedWord.toLowerCase())) {
+                    findWord(cursor);
+                    cursor = tf61;
+                    cursor.requestFocusInWindow();
+                }
             }
         }
     }
 
     private void tf61KeyTyped(KeyEvent e) {
-        cursor = tf61;
-        boolean max = tf61.getText().length() > 0;
-
-        if(!(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf61;
+            boolean max = tf61.getText().length() > 0;
 
-        if (max&&(Character.isLetter(e.getKeyChar()))) {
-            e.consume();
-            tf62.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf62;
-            tf62.requestFocusInWindow();
+            if (!(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+
+            if (max && (Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+                tf62.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf62;
+                tf62.requestFocusInWindow();
+            }
         }
     }
 
     private void tf62KeyTyped(KeyEvent e) {
-        cursor = tf62;
-        boolean max = tf62.getText().length() > 0;
-
-        if ( max || !(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf62;
+            boolean max = tf62.getText().length() > 0;
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
-            cursor = tf61;
-            tf61.requestFocusInWindow();
-        }else if(max&&Character.isLetter(e.getKeyChar())) {
-            tf63.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf63;
-            tf63.requestFocusInWindow();
+            if (max || !(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf61;
+                tf61.requestFocusInWindow();
+            } else if (max && Character.isLetter(e.getKeyChar())) {
+                tf63.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf63;
+                tf63.requestFocusInWindow();
+            }
         }
     }
 
     private void tf63KeyTyped(KeyEvent e) {
-        cursor = tf63;
-        boolean max = tf63.getText().length() > 0;
-
-        if ( max || !(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
-
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf63;
+            boolean max = tf63.getText().length() > 0;
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
-            cursor = tf62;
-            tf62.requestFocusInWindow();
-        }else if(max&&Character.isLetter(e.getKeyChar())) {
-            tf64.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf64;
-            tf64.requestFocusInWindow();
+            if (max || !(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf62;
+                tf62.requestFocusInWindow();
+            } else if (max && Character.isLetter(e.getKeyChar())) {
+                tf64.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf64;
+                tf64.requestFocusInWindow();
+            }
         }
     }
 
     private void tf64KeyTyped(KeyEvent e) {
-        cursor = tf64;
-
-        boolean max = tf64.getText().length() > 0;
-        if ( max || !(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf64;
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
-            cursor = tf63;
-            tf63.requestFocusInWindow();
-        }else if(max&&Character.isLetter(e.getKeyChar())){
-            tf65.setText(Character.toString(e.getKeyChar()).toUpperCase());
-            cursor = tf65;
-            tf65.requestFocusInWindow();
+            boolean max = tf64.getText().length() > 0;
+            if (max || !(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
+
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf63;
+                tf63.requestFocusInWindow();
+            } else if (max && Character.isLetter(e.getKeyChar())) {
+                tf65.setText(Character.toString(e.getKeyChar()).toUpperCase());
+                cursor = tf65;
+                tf65.requestFocusInWindow();
+            }
         }
     }
 
     private void tf65KeyTyped(KeyEvent e) {
-        cursor = tf65;
-        boolean max = tf65.getText().length() > 0;
-        if ( max ){
-            e.consume();
-        }
-        if(!(Character.isLetter(e.getKeyChar()))){
+        if(!cursor.isEditable()||!cursor.isEnabled()){
             e.consume();
         }else {
-            e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
-        }
+            cursor = tf65;
+            boolean max = tf65.getText().length() > 0;
+            if (max) {
+                e.consume();
+            }
+            if (!(Character.isLetter(e.getKeyChar()))) {
+                e.consume();
+            } else {
+                e.setKeyChar(Character.toUpperCase(e.getKeyChar()));
+            }
 
-        if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
-            cursor = tf64;
-            tf64.requestFocusInWindow();
-        }else if(e.getKeyChar() == KeyEvent.VK_ENTER){
-            setGuessedWord(cursor);
-            if(wrd.checkArray(guessedWord.toLowerCase())){
-                findWord(cursor);
+            if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                cursor = tf64;
+                tf64.requestFocusInWindow();
+            } else if (e.getKeyChar() == KeyEvent.VK_ENTER) {
+                setGuessedWord(cursor);
+                if (wrd.checkArray(guessedWord.toLowerCase())) {
+                    findWord(cursor);
+                }
             }
         }
     }
     private void q(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-           int index = textList.indexOf(cursor);
-           cursor = textList.get(index+1);
-            cursor.setText("Q");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("Q");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("Q");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("Q");
+            }
         }
             cursor.requestFocusInWindow();
     }
     private void w(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("W");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("W");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("W");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("W");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void e(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("E");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("E");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("E");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("E");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void r(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("R");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("R");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("R");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("R");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void t(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("T");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("T");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("T");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("T");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void y(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("Y");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("Y");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("Y");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("Y");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void u(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("U");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("U");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("U");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("U");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void i(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("I");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("I");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("I");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("I");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void o(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("O");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("O");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("O");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("O");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void p(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("P");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("P");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("P");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("P");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void a(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("A");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("A");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("A");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("A");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void s(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("S");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("S");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("S");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("S");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void d(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("D");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("D");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("D");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("D");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void f(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("F");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("F");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("F");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("F");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void g(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("G");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("G");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("G");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("G");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void h(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("H");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("H");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("H");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("H");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void j(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("J");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("J");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("J");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("J");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void k(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("K");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("K");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("K");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("K");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void l(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("L");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("L");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("L");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("L");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void z(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("Z");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("Z");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("Z");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("Z");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void x(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("X");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("X");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("X");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("X");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void c(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("C");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("C");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("C");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("C");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void v(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("V");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("V");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("V");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("V");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void b(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("B");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("B");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("B");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("B");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void n(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("N");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("N");
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("N");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("N");
+            }
         }
         cursor.requestFocusInWindow();
     }
 
     private void m(ActionEvent e) {
-        if((cursor.getText().length()>0)&&(!(lastOfRowList.contains(cursor)))) {
-            int index = textList.indexOf(cursor);
-            cursor = textList.get(index+1);
-            cursor.setText("M");
-        }else if(cursor.getText().length()==0){
-            cursor.setText("M");
-    }
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            if ((cursor.getText().length() > 0) && (!(lastOfRowList.contains(cursor)))) {
+                int index = textList.indexOf(cursor);
+                cursor = textList.get(index + 1);
+                cursor.setText("M");
+            } else if (cursor.getText().length() == 0) {
+                cursor.setText("M");
+            }
+        }
         cursor.requestFocusInWindow();
     }
     private void dELETE(ActionEvent e) {
-
-        cursor.setText("");
-        if (!(firstOfRowList.contains(cursor))) {
-            cursor = textList.get(textList.indexOf(cursor) - 1);
+        if(cursor.isEnabled()&&cursor.isEditable()) {
+            cursor.setText("");
+            if (!(firstOfRowList.contains(cursor))) {
+                cursor = textList.get(textList.indexOf(cursor) - 1);
+            }
         }
         cursor.requestFocusInWindow();
     }
@@ -981,11 +1150,11 @@ public class nullDesign {
         int cursorposition =textList.indexOf(cursor);
         boolean realWord = wrd.checkArray(guessedWord.toLowerCase());
 
-        if((lastOfRowList.contains(cursor))&&cursor!=tf65&&realWord){
+        if((lastOfRowList.contains(cursor))&&cursor!=tf65&&realWord&& cursor.isEditable()){
 
             findWord(cursor);
             cursor = textList.get( cursorposition  + 1);
-        } else if ((cursor == tf65)&&realWord) {
+        } else if ((cursor == tf65)&&realWord&& cursor.isEditable()) {
             findWord(cursor);
         }
         cursor.requestFocusInWindow();
@@ -1087,17 +1256,6 @@ public class nullDesign {
 
         }
         }
-
-
-
-
-
-
-
-
-
-
-
 
 
     private void initComponents() {
