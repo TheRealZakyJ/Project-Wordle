@@ -1187,7 +1187,7 @@ public class nullDesign {
 
         ArrayList<String> letterColor = wrd.getColor(guessedWord,colorCheck);
 
-        System.out.println(wordle);
+        
         char[] wordleListChar = guessedWord.toCharArray();
         if(wrd.checkWord(guessedWord.toLowerCase())){
             greenTFields(rowNum);
